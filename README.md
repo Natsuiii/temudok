@@ -1,5 +1,8 @@
 ## Instalasi
 #### Via Git
+
+Kalau Pake Laragon, pindah ke folder www baru clone
+
 ```bash
 git clone https://github.com/Natsuiii/temudok.git
 ```
