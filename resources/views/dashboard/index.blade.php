@@ -513,7 +513,7 @@
     </table> --}}
     <div class="container-fluid px-4">
         <div class="row g-3 my-2">
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-sm-6">
                 <!-- small box -->
                 <div class="small-box bg-primary">
                     <div class="inner text-white">
@@ -528,7 +528,7 @@
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-sm-6">
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner text-white">
@@ -543,7 +543,7 @@
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-sm-6">
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
@@ -558,7 +558,7 @@
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-sm-6">
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner text-white">
