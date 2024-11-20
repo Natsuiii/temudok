@@ -4,34 +4,40 @@
             <i class="lni lni-grid-alt"></i>
         </button>
         <div class="sidebar-logo">
-            <a href="#">CodzSword</a>
+            <a href="#">Temudok</a>
         </div>
     </div>
     <ul class="sidebar-nav">
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-                <i class="lni lni-user"></i>
-                <span>Profile</span>
+            <a href="{{ route('dashboard') }}" class="sidebar-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                <i class="fa-solid fa-gauge-high"></i>
+                <span>Dashboard</span>
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-                <i class="lni lni-agenda"></i>
-                <span>Task</span>
+            <a href="{{ route('appointment.table') }}" class="sidebar-link {{ request()->routeIs('appointment.table') ? 'active' : '' }}">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Appointment</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="{{ route('appointment.table') }}" class="sidebar-link {{ request()->routeIs('appointment.table') ? 'active' : '' }}">
+                <i class="fa-solid fa-user"></i>
+                <span>User</span>
             </a>
         </li>
         <li class="sidebar-item">
             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                 data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                <i class="lni lni-protection"></i>
-                <span>Auth</span>
+                <i class="fa-solid fa-user-doctor"></i>
+                <span>Doctor</span>
             </a>
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Login</a>
+                    <a href="#" class="sidebar-link">Add</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Register</a>
+                    <a href="#" class="sidebar-link">All</a>
                 </li>
             </ul>
         </li>
