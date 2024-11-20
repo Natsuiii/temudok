@@ -65,9 +65,9 @@
             </ul>
         </li>
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="{{ route('calendar') }}" class="sidebar-link">
                 <i class="lni lni-popup"></i>
-                <span>Notification</span>
+                <span>Calendar</span>
             </a>
         </li>
         <li class="sidebar-item">

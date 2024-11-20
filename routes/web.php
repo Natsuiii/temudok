@@ -17,3 +17,7 @@ Route::get('/appointment/table', function () {
     return view('appointment.table');
 })->name('appointment.table');
 
+Route::get('/calendar', function(){
+    return view('calendar.index');
+})->name('calendar');
+
