@@ -21,3 +21,7 @@ Route::get('/calendar', function(){
     return view('calendar.index');
 })->name('calendar');
 
+Route::get('/login', function(){
+    return view('login.index');
+})->name('login');
+
