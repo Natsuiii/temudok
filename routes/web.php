@@ -1,27 +1,31 @@
 <?php
 
+use App\Http\Controllers\AddUserController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function(){
-    return view('dashboard.index');
-})->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function(){
+        return view('dashboard.index');
+    })->name('dashboard');
+    
+    // routes/web.php
+    Route::get('/send-email/{email}', [EmailController::class, 'sendEmailNotification']);
+    Route::get('/appointment/table', function () {
+        return view('appointment.table');
+    })->name('appointment.table');
+    
+    Route::get('/calendar', function(){
+        return view('calendar.index');
+    })->name('calendar');
+    Route::resource('user', AddUserController::class); 
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
 
-// routes/web.php
-Route::get('/send-email/{email}', [EmailController::class, 'sendEmailNotification']);
-Route::get('/appointment/table', function () {
-    return view('appointment.table');
-})->name('appointment.table');
-
-Route::get('/calendar', function(){
-    return view('calendar.index');
-})->name('calendar');
-
-Route::get('/login', function(){
-    return view('login.index');
-})->name('login');
-
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');

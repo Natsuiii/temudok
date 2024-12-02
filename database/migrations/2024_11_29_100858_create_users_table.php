@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('role', ['admin', 'user', 'doctor'])->default('user');
+            $table->foreignId('role_id')->constrained('roles', 'id')->onDelete('cascade');
             $table->text('profile_photo_path')->nullable();
             $table->rememberToken();
             $table->timestamps();

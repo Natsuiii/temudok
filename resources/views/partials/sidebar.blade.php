@@ -21,7 +21,7 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="{{ route('appointment.table') }}" class="sidebar-link {{ request()->routeIs('appointment.table') ? 'active' : '' }}">
+            <a href="{{ route('user.create') }}" class="sidebar-link {{ request()->routeIs('user.create') ? 'active' : '' }}">
                 <i class="fa-solid fa-user"></i>
                 <span>User</span>
             </a>
