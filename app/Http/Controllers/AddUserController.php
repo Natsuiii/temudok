@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class AddUserController extends Controller
 {
@@ -13,7 +15,8 @@ class AddUserController extends Controller
      */
     public function index()
     {
-        
+        $users = User::with('role')->where('id', '!=', Auth::user()->id)->get();
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -22,7 +25,7 @@ class AddUserController extends Controller
     public function create()
     {
         $roles = Role::all();
-        return view('admin.create', compact('roles'));
+        return view('user.create', compact('roles'));
     }
 
     /**
@@ -63,7 +66,8 @@ class AddUserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $roles = Role::all();
+        return view('user.edit', compact('user', 'roles'));
     }
 
     /**
@@ -71,14 +75,58 @@ class AddUserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
-    }
+        $request->validate([
+            'name' => 'required',
+            'role' => 'required|exists:roles,id',
+        ]);
 
+        $user->update([
+            'name' => $request->name,
+            'role_id' => $request->role,
+        ]);
+
+        return redirect()->route('user.index')->with('success', 'User updated successfully.');
+    }
     /**
      * Remove the specified resource from storage.
      */
+    public function bulkDestroy(Request $request)
+    {
+        try {
+            // Validasi ID yang dipilih
+            $request->validate([
+                'ids' => 'required|min:1',
+                'ids.*' => 'exists:users,id',
+            ], [
+                'ids.required' => 'You must select at least one user to delete.',
+                'ids.min' => 'Please ensure you select at least one user.',
+                'ids.*.exists' => 'The selected user does not exist.',
+            ]);
+            
+            $ids = explode(',', $request->ids);
+
+            // Hapus banyak user berdasarkan ID
+            User::destroy($ids);
+
+            // Kirim pesan sukses
+            return back()->with('success', 'Users deleted successfully.');
+        } catch (ValidationException $e) {
+            // Tangkap error validasi dan kirim pesan error
+            return back()->withErrors($e->validator)->withInput();
+        }
+    }
+
     public function destroy(User $user)
     {
-        //
+        try {
+            // Hapus user
+            $user->delete();
+
+            // Kirim pesan sukses
+            return back()->with('success', 'User deleted successfully.');
+        } catch (ValidationException $e) {
+            // Tangkap error validasi dan kirim pesan error
+            return back()->withErrors($e->validator)->withInput();
+        }
     }
 }

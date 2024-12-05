@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
         return view('calendar.index');
     })->name('calendar');
     Route::resource('user', AddUserController::class); 
+    Route::delete('/users/bulk-destroy', [AddUserController::class, 'bulkDestroy'])->name('users.bulkDestroy');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 

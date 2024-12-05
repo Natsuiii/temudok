@@ -21,10 +21,18 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="{{ route('user.create') }}" class="sidebar-link {{ request()->routeIs('user.create') ? 'active' : '' }}">
+            <a href="#" class="sidebar-link collapsed has-dropdown {{ request()->routeIs('user.create', 'user.index') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#user" aria-expanded="false" aria-controls="user">
                 <i class="fa-solid fa-user"></i>
                 <span>User</span>
             </a>
+            <ul id="user" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a href="{{ route('user.index') }}" class="sidebar-link">List</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ route('user.create') }}" class="sidebar-link">Create</a>
+                </li>
+            </ul>
         </li>
         <li class="sidebar-item">
             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"

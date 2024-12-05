@@ -19,7 +19,9 @@
                 <div class="featured-image mb-3">
                     <img src="{{ asset('img/1.png') }}" class="img-fluid" style="width: 250px;">
                 </div>
-                <p class="text-white fs-2 text-center" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Login to access Dashboard</p>
+                <p class="text-white fs-2 text-center"
+                    style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Login to access Dashboard
+                </p>
                 <small class="text-white text-wrap text-center"
                     style="width: 17rem;font-family: 'Courier New', Courier, monospace;"></small>
             </div>
@@ -32,12 +34,16 @@
                         <p>We are happy to have you back.</p>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control form-control-lg bg-light fs-6"
+                        <input type="text"
+                            class="form-control form-control-lg bg-light fs-6 @error('email') is-invalid @enderror"
                             placeholder="Email address" name="email" id="email">
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="input-group mb-1">
-                        <input type="password" class="form-control form-control-lg bg-light fs-6"
-                            placeholder="Password" name="password" id="password">
+                        <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Password"
+                            name="password" id="password">
                     </div>
                     <div class="input-group mb-5 d-flex justify-content-between">
                         <div class="form-check">

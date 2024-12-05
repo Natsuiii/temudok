@@ -78,7 +78,7 @@
                         </div>
                         <div class="card-body overflow-auto">
                             <label for="role" class="form-label">Roles</label>
-                            <select class="form-select @error('role') is-invalid @enderror" name="role" id="role">
+                            <select class="form-select @error('role') is-invalid @enderror mb-3" name="role" id="role">
                                 <option value="" selected disabled>Please Choose One</option>
                                 @foreach ($roles as $role)
                                     <option value="{{ $role->id }}">{{ $role->name }}</option>
