@@ -1,10 +1,10 @@
-<aside id="sidebar">
+<aside id="sidebar" class="expand">
     <div class="d-flex">
         <button class="toggle-btn" type="button">
             <i class="lni lni-grid-alt"></i>
         </button>
         <div class="sidebar-logo">
-            <a href="#">Temudok</a>
+            <a href="#">Temudok - {{ Auth::user()->role->name }}</a>
         </div>
     </div>
     <ul class="sidebar-nav">
@@ -15,10 +15,18 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="{{ route('appointment.table') }}" class="sidebar-link {{ request()->routeIs('appointment.table') ? 'active' : '' }}">
+            <a href="#" class="sidebar-link collapsed has-dropdown {{ request()->routeIs('appointment.create', 'appointment.index') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#appointment" aria-expanded="false" aria-controls="appointment">
                 <i class="fa-solid fa-calendar-check"></i>
                 <span>Appointment</span>
             </a>
+            <ul id="appointment" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a href="{{ route('appointment.index') }}" class="sidebar-link">List</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ route('appointment.create') }}" class="sidebar-link">Create</a>
+                </li>
+            </ul>
         </li>
         <li class="sidebar-item">
             <a href="#" class="sidebar-link collapsed has-dropdown {{ request()->routeIs('user.create', 'user.index') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#user" aria-expanded="false" aria-controls="user">
@@ -86,9 +94,14 @@
         </li>
     </ul>
     <div class="sidebar-footer">
-        <a href="#" class="sidebar-link">
-            <i class="lni lni-exit"></i>
-            <span>Logout</span>
-        </a>
+        
+        <form action="{{ route('logout') }}" method="post">
+            @csrf
+            <a href="#" class="sidebar-link">
+                <i class="lni lni-exit"></i>
+                {{-- <span>Logout</span> --}}
+                <button type="submit" class="btn btn-link text-decoration-none text-white">Logout</button>
+            </a>
+        </form>
     </div>
 </aside>

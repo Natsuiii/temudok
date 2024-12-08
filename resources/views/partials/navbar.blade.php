@@ -5,11 +5,8 @@
                 height="24">
         </a>
         <div class="dropdown ms-auto">
-            {{-- <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                
-            </button> --}}
-            <i class="lni lni-user" style="color: white" id="navbarDropdown" data-bs-toggle="dropdown"
-                aria-expanded="false"></i>
+            <img src="{{ asset('img/default-profile.png') }}" alt="" class="img-fluid rounded-circle" style="width: 40px; height: 40px;" id="navbarDropdown" data-bs-toggle="dropdown"
+            aria-expanded="false">
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="#">Go to web</a></li>
                 <li><a class="dropdown-item" href="#">Setting</a></li>
