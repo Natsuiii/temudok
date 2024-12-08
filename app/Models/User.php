@@ -47,4 +47,19 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function unavailableTimes()
+    {
+        return $this->hasMany(UnavailableTime::class, 'doctor_id', 'id');
+    }
+
+    public function doctorAppointments()
+    {
+        return $this->hasMany(Appointment::class, 'doctor_id', 'id');
+    }
+
+    public function patientAppointments()
+    {
+        return $this->hasMany(Appointment::class, 'patient_id', 'id');
+    }
 }

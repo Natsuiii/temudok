@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AddUserController;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/calendar', function(){
         return view('calendar.index');
     })->name('calendar');
+    
+    Route::resource('appointment', AppointmentController::class);
+    Route::get('/get-unavailable-times/{doctorId}', [AppointmentController::class, 'getUnavailableTimes']);
+
     Route::resource('user', AddUserController::class); 
     Route::delete('/users/bulk-destroy', [AddUserController::class, 'bulkDestroy'])->name('users.bulkDestroy');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

@@ -36,7 +36,7 @@
         <div class="alert alert-warning" role="alert" id="warning">
             Alert
         </div>
-        <input type="text" name="booking" id="booking" class="w-100" autocomplete="off" />
+        <input type="text" name="booking" id="booking" class="w-100 form-control is-invalid" autocomplete="off" />
     </div>
 @endsection
 
