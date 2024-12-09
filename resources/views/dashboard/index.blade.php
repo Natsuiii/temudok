@@ -49,9 +49,9 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner text-white">
-                        <h3>53<sup class="fs-5">%</sup></h3>
+                        <h3>53</h3>
 
-                        <p>Success</p>
+                        <p>Done</p>
                     </div>
                     <div class="icon">
                         <i class="fa-solid fa-square-check"></i>

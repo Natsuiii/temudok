@@ -56,8 +56,8 @@
                 <form action="{{ route('users.bulkDestroy') }}" method="POST" id="bulk-delete-form">
                     @csrf
                     @method('DELETE')
-                    <input type="text" name="ids" id="bulk-ids">
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-xmark"></i> &nbsp; Delete
+                    <input type="hidden" name="ids" id="bulk-ids">
+                    <button type="submit" class="btn btn-danger" id="bulk-delete"><i class="fas fa-xmark"></i> &nbsp; Delete
                         Selected</button>
                 </form>
                 <table id="user-table" class="table table-striped align-middle" style="width:100%">
@@ -93,7 +93,7 @@
                                         style="display:inline;" id="single-delete-form">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm"><i
+                                        <button type="submit" class="btn btn-danger btn-sm" id="delete-single"><i
                                                 class="fa-solid fa-xmark"></i></button>
                                     </form>
                                 </td>
@@ -111,6 +111,7 @@
     <script src="https://cdn.datatables.net/2.1.7/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.1.7/js/dataTables.bootstrap5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('js/confirmSubmit.js') }}"></script>
     <script>
         $("#user-table").DataTable({
             "responsive": true,

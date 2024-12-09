@@ -1,12 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    @if (session('success'))
-        <div class="alert alert-success alert-dismissible">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+    
 
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -33,6 +28,13 @@
         <!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
+
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
     <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data" id="userForm">
         @csrf
@@ -81,7 +83,11 @@
                             <select class="form-select @error('role') is-invalid @enderror mb-3" name="role" id="role">
                                 <option value="" selected disabled>Please Choose One</option>
                                 @foreach ($roles as $role)
-                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                    @if (old('role') == $role->id)
+                                        <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
+                                    @else
+                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             @error('role')
