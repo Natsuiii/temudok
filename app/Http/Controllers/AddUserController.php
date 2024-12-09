@@ -15,8 +15,8 @@ class AddUserController extends Controller
      */
     public function index()
     {
-        $users = User::with('role')->where('id', '!=', Auth::user()->id)->get();
-        return view('user.index', compact('users'));
+        // $users = User::with('role')->where('id', '!=', Auth::user()->id)->get();
+        return view('user.index');
     }
 
     /**

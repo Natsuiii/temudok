@@ -1,44 +1,35 @@
-@extends('layouts.dashboard')
+@extends('layouts.dashboard2')
 
 @section('content')
-    
-
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Add User</h1>
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-6 d-flex justify-content-end">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="{{ route('dashboard') }}">Dashboard</a>
-                        </li>
-                        <li class="breadcrumb-item active">
-                            Add User
-                        </li>
-                    </ol>
-                </div>
-                <!-- /.col -->
+    <div class="container-fluid p-0">
+        <div class="row mb-2 mb-xl-3">
+            <div class="col-auto d-none d-sm-block">
+                <h3><strong>Dashboard</strong></h3>
             </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
 
-    @if (session('success'))
-        <div class="alert alert-success alert-dismissible">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="col-auto ms-auto text-end mt-n1">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Add User
+                    </li>
+                </ol>
+            </div>
         </div>
-    @endif
 
-    <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data" id="userForm">
-        @csrf
-        <div class="container-fluid">
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="alert-message">
+                    {{ session('success') }}
+                </div>
+            </div>
+        @endif
+
+        <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data" id="userForm">
+            @csrf
             <div class="row">
                 {{-- Left Col --}}
                 <div class="col-md-8">
@@ -80,7 +71,8 @@
                         </div>
                         <div class="card-body overflow-auto">
                             <label for="role" class="form-label">Roles</label>
-                            <select class="form-select @error('role') is-invalid @enderror mb-3" name="role" id="role">
+                            <select class="form-select @error('role') is-invalid @enderror mb-3" name="role"
+                                id="role">
                                 <option value="" selected disabled>Please Choose One</option>
                                 @foreach ($roles as $role)
                                     @if (old('role') == $role->id)
@@ -118,6 +110,6 @@
                 </div>
                 {{-- End Right Col --}}
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 @endsection
