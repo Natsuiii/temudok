@@ -2,8 +2,8 @@
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="index.html">
             <span class="sidebar-brand-text align-middle">
-                Jassa
-                <sup><small class="badge bg-primary text-uppercase">Pro</small></sup>
+                Temu
+                <sup><small class="badge bg-primary text-uppercase">Dok</small></sup>
             </span>
             <svg class="sidebar-brand-icon align-middle" width="32px" height="32px" viewbox="0 0 24 24" fill="none"
                 stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" color="#FFFFFF"
@@ -22,7 +22,7 @@
                 </div>
                 <div class="flex-grow-1 ps-2">
                     <a class="sidebar-user-title dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                        Jassa
+                        {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-start">
                         <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1"
@@ -39,14 +39,14 @@
                         <a class="dropdown-item" href="#">Log out</a>
                     </div>
 
-                    <div class="sidebar-user-subtitle">Designer</div>
+                    <div class="sidebar-user-subtitle">{{ Auth::user()->role->name }}</div>
                 </div>
             </div>
         </div>
 
         <ul class="sidebar-nav">
             <li class="sidebar-header">
-                Pages
+                Admin
             </li>
             <li class="sidebar-item active">
                 <a class="sidebar-link" href="{{ route('dashboard') }}">
@@ -54,10 +54,23 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
+                <a data-bs-target="#user" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
                     <i class="align-middle" data-feather="user"></i> <span class="align-middle">User</span>
                 </a>
-                <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <ul id="user" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('user.create') }}">Create</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('user.index') }}">List</a></li>
+                </ul>
+            </li>
+
+            <li class="sidebar-header">
+                Doctor
+            </li>
+            <li class="sidebar-item">
+                <a data-bs-target="#schedule" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
+                    <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Manage Schedule</span>
+                </a>
+                <ul id="schedule" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="{{ route('user.create') }}">Create</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="{{ route('user.index') }}">List</a></li>
                 </ul>

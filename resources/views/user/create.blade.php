@@ -34,8 +34,11 @@
                 {{-- Left Col --}}
                 <div class="col-md-8">
                     <div class="card mb-3">
-                        <div class="card-header" style="background-color: #0e2238">
-                            <div class="row text-light px-2">General Info</div>
+                        <div class="card-header" style="background-color: #222e3c">
+                            <h5 class="card-title text-light">General Info</h5>
+                            <h6 class="card-subtitle text-light text-muted">
+                                Enter user info here
+                            </h6>
                         </div>
                         <div class="card-body overflow-auto">
                             <div class="row mb-3">
@@ -66,8 +69,8 @@
                         </div>
                     </div>
                     <div class="card p-0">
-                        <div class="card-header" style="background-color: #0e2238">
-                            <div class="row text-light px-2">Others</div>
+                        <div class="card-header" style="background-color: #222e3c">
+                            <h5 class="card-title text-light">Others</h5>
                         </div>
                         <div class="card-body overflow-auto">
                             <label for="role" class="form-label">Roles</label>
@@ -100,8 +103,11 @@
                 {{-- Right Col --}}
                 <div class="col-md-4">
                     <div class="card p-0">
-                        <div class="card-header" style="background-color: #0e2238">
-                            <div class="row text-light px-2">Save</div>
+                        <div class="card-header" style="background-color: #222e3c">
+                            <h5 class="card-title text-light">Save</h5>
+                            <h6 class="card-subtitle text-light text-muted">
+                                Submit here
+                            </h6>
                         </div>
                         <div class="card-body overflow-auto">
                             <button type="submit" class="btn btn-primary w-100">Submit</button>

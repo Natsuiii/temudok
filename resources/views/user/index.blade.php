@@ -43,14 +43,14 @@
                 </div>
             </div>
         @enderror
-        
+
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">User List</h5>
-                        <h6 class="card-subtitle text-muted">If you want to add more, click <a href="{{ route('user.create') }}"
-                                rel="noopener noreferrer nofollow">here</a>.</h6>
+                        <h6 class="card-subtitle text-muted">If you want to add more, click <a
+                                href="{{ route('user.create') }}" rel="noopener noreferrer nofollow">here</a>.</h6>
                     </div>
                     <div class="card-body overflow-auto">
                         <!-- Tombol untuk melakukan bulk destroy -->
@@ -58,8 +58,9 @@
                             @csrf
                             @method('DELETE')
                             <input type="hidden" name="ids" id="bulk-ids">
-                            <button type="submit" class="btn btn-danger" id="bulk-delete"><i class="fas fa-xmark"></i> &nbsp;
-        
+                            <button type="submit" class="btn btn-danger" id="bulk-delete"><i class="fas fa-xmark"></i>
+                                &nbsp;
+
                                 Delete
                                 Selected</button>
                         </form>
@@ -74,59 +75,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($users as $user)
-                                        <tr>
-                                            <td><input type="checkbox" class="row-select" data-id="{{ $user->id }}"></td>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>
-                                                @if ($user->role->name == 'Admin')
-                                                    <span class="badge bg-success">{{ $user->role->name }}</span>
-                                                @elseif ($user->role->name == 'Guest')
-                                                    <span class="badge bg-warning">{{ $user->role->name }}</span>
-                                                @elseif ($user->role->name == 'Doctor')
-                                                    <span class="badge bg-info">{{ $user->role->name }}</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <a href="" class="btn btn-warning btn-sm"><i
-                                                        class="fa-solid fa-bell"></i></a>
-                                                <a href="{{ route('user.edit', $user->id) }}" class="btn btn-info btn-sm"><i
-                                                        class="fa-solid fa-pencil"></i></a>
-                                                <form action="{{ route('user.destroy', $user->id) }}" method="POST"
-                                                    style="display:inline;" id="single-delete-form">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" id="delete-single"><i
-                                                            class="fa-solid fa-xmark"></i></button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach --}}
-                                <tr>
-                                    <td><input type="checkbox" class="row-select" data-id=""></td>
-                                    <td>Ohuen</td>
-                                    <td>owentb125@gmail.com</td>
-                                    <td>
-                                        {{-- @if ($user->role->name == 'Admin') --}}
-                                        <span class="badge bg-success">Admin</span>
-                                        {{-- @elseif ($user->role->name == 'Guest') --}}
-                                        {{-- <span class="badge bg-warning">{{ $user->role->name }}</span> --}}
-                                        {{-- @elseif ($user->role->name == 'Doctor') --}}
-                                        {{-- <span class="badge bg-info">{{ $user->role->name }}</span> --}}
-                                        {{-- @endif --}}
-                                    </td>
-                                    <td>
-                                        <a href="" class="btn btn-warning btn-sm"><i class="fa-solid fa-bell"></i></a>
-                                        <a href="" class="btn btn-info btn-sm"><i class="fa-solid fa-pencil"></i></a>
-                                        <form action="" method="POST" style="display:inline;" id="single-delete-form">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm" id="delete-single"><i
-                                                    class="fa-solid fa-xmark"></i></button>
-                                        </form>
-                                    </td>
-                                </tr>
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <td><input type="checkbox" class="row-select" data-id="{{ $user->id }}"></td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>
+                                            @if ($user->role->name == 'Admin')
+                                                <span class="badge bg-success">{{ $user->role->name }}</span>
+                                            @elseif ($user->role->name == 'Guest')
+                                                <span class="badge bg-warning">{{ $user->role->name }}</span>
+                                            @elseif ($user->role->name == 'Doctor')
+                                                <span class="badge bg-info">{{ $user->role->name }}</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="" class="btn btn-warning btn-sm"><i
+                                                    class="fa-solid fa-bell"></i></a>
+                                            <a href="{{ route('user.edit', $user->id) }}" class="btn btn-info btn-sm"><i
+                                                    class="fa-solid fa-pencil"></i></a>
+                                            <form action="{{ route('user.destroy', $user->id) }}" method="POST"
+                                                style="display:inline;" id="single-delete-form">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" id="delete-single"><i
+                                                        class="fa-solid fa-xmark"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

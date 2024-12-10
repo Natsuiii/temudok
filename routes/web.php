@@ -4,6 +4,7 @@ use App\Http\Controllers\AddUserController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UnavailableTimeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,6 +31,9 @@ Route::get('/', function () {
 
     Route::resource('user', AddUserController::class); 
     Route::delete('/users/bulk-destroy', [AddUserController::class, 'bulkDestroy'])->name('users.bulkDestroy');
+
+    Route::resource('/schedule', UnavailableTimeController::class);
+
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // });
 
