@@ -6,7 +6,7 @@
 
 @section('content')
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    {{-- <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
@@ -28,25 +28,27 @@
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-    </div>
+    </div> --}}
     <!-- /.content-header -->
 
     <div class="container-fluid px-4">
-        @if (Auth::user()->role_id == '2')
-            <div class="card">
-                <div class="card-header" style="background-color: #0e2238">
-                    <div class="row text-light px-2">
-                        All Appointment
-                    </div>
+        {{-- @if (Auth::user()->role_id == '2') --}}
+        <div class="card">
+            <div class="card-header" style="background-color: #0e2238">
+                <div class="row text-light px-2">
+                    All Appointment
                 </div>
-                <div class="card-body overflow-auto">
-                    <a href="#"><button type="button" class="btn btn-danger"><i class="fas fa-xmark"></i> &nbsp;
-                            Cancel
-                            Selected</button></a>
-                    <table id="appointment-table" class="table table-striped align-middle" style="width:100%">
+            </div>
+            <div class="card-body">
+                <a href="#"><button type="button" class="btn btn-danger" id="bulk-delete"><i class="fas fa-xmark"></i>
+                        &nbsp;
+                        Cancel
+                        Selected</button></a>
+                <div class="table-responsive">
+                    <table id="appointment-table" class="table table-striped">
                         <thead>
                             <tr>
-                                <th style="width: 5%"><input type="checkbox" id="select-all"></th>
+                                {{-- <th style="width: 5%"><input type="checkbox" id="select-all"></th> --}}
                                 <th>Name</th>
                                 <th>Age</th>
                                 <th>Description</th>
@@ -57,7 +59,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="checkbox" class="row-select" data-id=""></td>
+                                {{-- <td><input type="checkbox" class="row-select" data-id=""></td> --}}
                                 <td>Awokwok</td>
                                 <td>20</td>
                                 <td>Test</td>
@@ -66,13 +68,14 @@
                                 <td>
                                     <a href="" class="btn btn-success btn-sm"><i class="fa-solid fa-check"></i></a>
                                     <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-xmark"></i></a>
-                                    <a href="" class="btn btn-warning btn-sm"><i class="fa-solid fa-calendar"></i></a>
+                                    <a href="" class="btn btn-warning btn-sm"><i
+                                            class="fa-solid fa-calendar"></i></a>
                                     <a href="" class="btn btn-info btn-sm"><i class="fa-solid fa-bell"></i></a>
                                     <a href="" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
                                 </td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" class="row-select" data-id=""></td>
+                                {{-- <td><input type="checkbox" class="row-select" data-id=""></td> --}}
                                 <td>Awokwok</td>
                                 <td>20</td>
                                 <td>Test</td>
@@ -81,7 +84,8 @@
                                 <td>
                                     <a href="" class="btn btn-success btn-sm"><i class="fa-solid fa-check"></i></a>
                                     <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-xmark"></i></a>
-                                    <a href="" class="btn btn-warning btn-sm"><i class="fa-solid fa-calendar"></i></a>
+                                    <a href="" class="btn btn-warning btn-sm"><i
+                                            class="fa-solid fa-calendar"></i></a>
                                     <a href="" class="btn btn-info btn-sm"><i class="fa-solid fa-bell"></i></a>
                                     <a href="" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
                                 </td>
@@ -90,7 +94,8 @@
                     </table>
                 </div>
             </div>
-        @endif
+        </div>
+        {{-- @endif --}}
     </div>
 @endsection
 
@@ -98,20 +103,19 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.datatables.net/2.1.7/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.1.7/js/dataTables.bootstrap5.js"></script>
+    <script src="{{ asset('js/confirmSubmit.js') }}"></script>
     <script>
         $("#appointment-table").DataTable({
-            "responsive": true,
-            "lengthChange": true,
-            "autoWidth": false,
-            columnDefs: [{
-                    orderable: false,
-                    targets: 6
-                }, // Menonaktifkan sorting untuk kolom action
-                {
-                    orderable: false,
-                    targets: 0
-                }, // Menonaktifkan sorting untuk kolom checkbox
-            ]
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            // columnDefs: [{
+            //         orderable: false,
+            //         targets: 6
+            //     }, // Menonaktifkan sorting untuk kolom action
+            //     {
+            //         orderable: false,
+            //         targets: 0
+            //     }, // Menonaktifkan sorting untuk kolom checkbox
+            // ]
         });
 
         $('#select-all').on('click', function() {

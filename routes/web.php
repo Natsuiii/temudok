@@ -4,15 +4,16 @@ use App\Http\Controllers\AddUserController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UnavailableTimeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('auth')->group(function () {
+// Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function(){
-        return view('dashboard.index');
+        return view('dashboard.index2');
     })->name('dashboard');
     
     // routes/web.php
@@ -30,8 +31,11 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('user', AddUserController::class); 
     Route::delete('/users/bulk-destroy', [AddUserController::class, 'bulkDestroy'])->name('users.bulkDestroy');
+
+    Route::resource('/schedule', UnavailableTimeController::class);
+
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-});
+// });
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');

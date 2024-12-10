@@ -1,106 +1,113 @@
-@extends('layouts.dashboard')
+@extends('layouts.dashboard2')
 
 @push('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.7/css/dataTables.bootstrap5.css">
 @endpush
 
 @section('content')
-    @if (session('success'))
-        <div class="alert alert-success alert-dismissible">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+    <div class="container-fluid p-0">
 
-    @error('ids')
-        <div class="alert alert-danger alert-dismissible">
-            {{ $message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @enderror
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">User List</h1>
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-6 d-flex justify-content-end">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="{{ route('dashboard') }}">Dashboard</a>
-                        </li>
-                        <li class="breadcrumb-item active">
-                            User List
-                        </li>
-                    </ol>
-                </div>
-                <!-- /.col -->
+        <!-- Content Header (Page header) -->
+        <div class="row mb-2 mb-xl-3">
+            <div class="col-auto d-none d-sm-block">
+                <h3><strong>Dashboard</strong></h3>
             </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
 
-    <div class="container-fluid px-4">
-        <div class="card">
-            <div class="card-header" style="background-color: #0e2238">
-                <div class="row text-light px-2">
-                    All User
+            <div class="col-auto ms-auto text-end mt-n1">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        List User
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.content-header -->
+
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="alert-message">
+                    {{ session('success') }}
                 </div>
             </div>
-            <div class="card-body overflow-auto">
-                <!-- Tombol untuk melakukan bulk destroy -->
-                <form action="{{ route('users.bulkDestroy') }}" method="POST" id="bulk-delete-form">
-                    @csrf
-                    @method('DELETE')
-                    <input type="text" name="ids" id="bulk-ids">
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-xmark"></i> &nbsp; Delete
-                        Selected</button>
-                </form>
-                <table id="user-table" class="table table-striped align-middle" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th style="width: 5%"><input type="checkbox" id="select-all"></th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                            <tr>
-                                <td><input type="checkbox" class="row-select" data-id="{{ $user->id }}"></td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>
-                                    @if ($user->role->name == 'Admin')
-                                        <span class="badge bg-success">{{ $user->role->name }}</span>
-                                    @elseif ($user->role->name == 'Guest')
-                                        <span class="badge bg-warning">{{ $user->role->name }}</span>
-                                    @elseif ($user->role->name == 'Doctor')
-                                        <span class="badge bg-info">{{ $user->role->name }}</span>
-                                    @endif
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn-warning btn-sm"><i class="fa-solid fa-bell"></i></a>
-                                    <a href="{{ route('user.edit', $user->id) }}" class="btn btn-info btn-sm"><i
-                                            class="fa-solid fa-pencil"></i></a>
-                                    <form action="{{ route('user.destroy', $user->id) }}" method="POST"
-                                        style="display:inline;" id="single-delete-form">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm"><i
-                                                class="fa-solid fa-xmark"></i></button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+        @endif
+
+        @error('ids')
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="alert-message">
+                    {{ $message }}
+                </div>
+            </div>
+        @enderror
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">User List</h5>
+                        <h6 class="card-subtitle text-muted">If you want to add more, click <a
+                                href="{{ route('user.create') }}" rel="noopener noreferrer nofollow">here</a>.</h6>
+                    </div>
+                    <div class="card-body overflow-auto">
+                        <!-- Tombol untuk melakukan bulk destroy -->
+                        <form action="{{ route('users.bulkDestroy') }}" method="POST" id="bulk-delete-form">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="ids" id="bulk-ids">
+                            <button type="submit" class="btn btn-danger" id="bulk-delete"><i class="fas fa-xmark"></i>
+                                &nbsp;
+
+                                Delete
+                                Selected</button>
+                        </form>
+                        <table id="user-table" class="table table-striped align-middle" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%"><input type="checkbox" id="select-all"></th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <td><input type="checkbox" class="row-select" data-id="{{ $user->id }}"></td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>
+                                            @if ($user->role->name == 'Admin')
+                                                <span class="badge bg-success">{{ $user->role->name }}</span>
+                                            @elseif ($user->role->name == 'Guest')
+                                                <span class="badge bg-warning">{{ $user->role->name }}</span>
+                                            @elseif ($user->role->name == 'Doctor')
+                                                <span class="badge bg-info">{{ $user->role->name }}</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="" class="btn btn-warning btn-sm"><i
+                                                    class="fa-solid fa-bell"></i></a>
+                                            <a href="{{ route('user.edit', $user->id) }}" class="btn btn-info btn-sm"><i
+                                                    class="fa-solid fa-pencil"></i></a>
+                                            <form action="{{ route('user.destroy', $user->id) }}" method="POST"
+                                                style="display:inline;" id="single-delete-form">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" id="delete-single"><i
+                                                        class="fa-solid fa-xmark"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -111,6 +118,7 @@
     <script src="https://cdn.datatables.net/2.1.7/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.1.7/js/dataTables.bootstrap5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('js/confirmSubmit.js') }}"></script>
     <script>
         $("#user-table").DataTable({
             "responsive": true,
