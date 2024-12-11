@@ -36,3 +36,13 @@ Route::get('/', function () {
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+
+Route::get('/landingpage', function(){
+    return view('landingpage.page');
+})->name('landingpage');
+Route::get('/appointment', function(){
+    return view('landingpage.appointment');
+})->name('appointment');
+Route::get('/history', function(){
+    return view('landingpage.history');
+})->name('history');
