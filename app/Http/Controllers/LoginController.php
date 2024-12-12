@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class LoginController extends Controller
         if (Auth::check()) {
             return redirect('/dashboard');
         }
-        return view('login.index');
+        return view('auth.login');
     }
 
     public function authenticate(Request $request)
@@ -43,5 +44,30 @@ class LoginController extends Controller
         request()->session()->regenerateToken();
 
         return redirect('/login');
+    }
+
+    public function register()
+    {
+        return view('auth.register');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'role_id' => 1,
+        ]);
+
+        Auth::login($user);
+
+        return redirect()->route('dashboard');
     }
 }

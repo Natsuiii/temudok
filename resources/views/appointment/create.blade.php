@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.dashboard2')
 
 @push('css')
     <!-- Daterange picker -->

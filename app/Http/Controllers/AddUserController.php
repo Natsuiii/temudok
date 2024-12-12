@@ -33,6 +33,7 @@ class AddUserController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users,email',
@@ -116,8 +117,9 @@ class AddUserController extends Controller
         }
     }
 
-    public function destroy(User $user)
+    public function destroy(User $user, Request $request)
     {
+        // dd($request);
         try {
             // Hapus user
             $user->delete();

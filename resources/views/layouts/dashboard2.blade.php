@@ -33,6 +33,8 @@
             <main class="content">
                 @yield('content')
             </main>
+
+            @include('partials.footer2')
         </div>
     </div>
 

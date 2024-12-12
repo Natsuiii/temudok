@@ -23,10 +23,10 @@ return new class extends Migration
             $table->timestamps();
         });
         
-        Schema::create('doctor_unvailable_time', function (Blueprint $table) {
+        Schema::create('unavailable_times', function (Blueprint $table) {
             $table->id();
             $table->foreignId('doctor_id')->constrained('users', 'id')->onDelete('cascade');
-            $table->dateTime('unavailable_time');
+            $table->date('unavailable_time');
             $table->timestamps();
         });
         

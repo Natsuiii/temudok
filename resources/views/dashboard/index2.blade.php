@@ -20,6 +20,15 @@
             </div>
         </div>
 
+        @if (session('error'))
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="alert-message">
+                    {{ session('error') }}
+                </div>
+            </div>
+        @endif
+
         <div class="row">
             <div class="col-lg-3 col-sm-6">
                 <!-- small box -->

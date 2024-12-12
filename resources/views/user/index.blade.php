@@ -118,7 +118,7 @@
     <script src="https://cdn.datatables.net/2.1.7/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.1.7/js/dataTables.bootstrap5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{{ asset('js/confirmSubmit.js') }}"></script>
+    {{-- <script src="{{ asset('js/confirmSubmit.js') }}"></script> --}}
     <script>
         $("#user-table").DataTable({
             "responsive": true,
@@ -160,5 +160,22 @@
             // Set array ids ke input hidden pada form bulk delete
             $('#bulk-ids').val(selectedIds);
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('#delete-single').forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    let form = this.closest('#single-delete-form');
+
+                    let confirmed = window.confirm('Are you sure?');
+
+                    if (confirmed) {
+                        form.submit();
+                    } else {
+                        return false;
+                    }
+                });
+            });
+        });
     </script>
 @endpush
