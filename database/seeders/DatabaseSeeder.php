@@ -36,6 +36,13 @@ class DatabaseSeeder extends Seeder
             'role_id' => 3
         ]);
 
+        User::factory()->create([
+            'name' => 'Pewdi',
+            'email' => 'pewdi@gmail.com',
+            'password' => bcrypt('password'),
+            'role_id' => 2
+        ]);
+
         AppointmentStatus::factory()->create([
             'status_name' => 'Scheduled',
         ]);

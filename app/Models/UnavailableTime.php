@@ -9,8 +9,6 @@ class UnavailableTime extends Model
 {
     use HasFactory;
 
-    protected $table = 'doctor_unvailable_time';
-
     protected $guarded = [
         'id',
     ];

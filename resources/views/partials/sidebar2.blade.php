@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
-        <a class="sidebar-brand" href="index.html">
-            <span class="sidebar-brand-text align-middle">
+        <a class="sidebar-brand" href="{{ route('dashboard') }}">
+            <span class= "sidebar-brand-text align-middle">
                 Temu
                 <sup><small class="badge bg-primary text-uppercase">Dok</small></sup>
             </span>
@@ -36,7 +36,10 @@
                         <a class="dropdown-item" href="#"><i class="align-middle me-1"
                                 data-feather="help-circle"></i> Help Center</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Log out</a>
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button type="submit" class="dropdown-item dropdown-footer">Logout</button>
+                        </form>
                     </div>
 
                     <div class="sidebar-user-subtitle">{{ Auth::user()->role->name }}</div>
@@ -71,8 +74,8 @@
                     <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Manage Schedule</span>
                 </a>
                 <ul id="schedule" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('user.create') }}">Create</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('user.index') }}">List</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('schedule.create') }}">Create</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('schedule.index') }}">List</a></li>
                 </ul>
             </li>
         </ul>
