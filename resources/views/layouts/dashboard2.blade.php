@@ -25,16 +25,16 @@
 <body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
 
     <div class="wrapper">
-        @include('partials.sidebar2')\
+        @include('partials.dashboard.sidebar2')\
 
         <div class="main">
-            @include('partials.navbar2')
+            @include('partials.dashboard.navbar2')
 
             <main class="content">
                 @yield('content')
             </main>
 
-            @include('partials.footer2')
+            @include('partials.dashboard.footer2')
         </div>
     </div>
 
