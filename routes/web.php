@@ -8,9 +8,21 @@ use App\Http\Controllers\UnavailableTimeController;
 use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', function(){
+    return view('home.index');
+})->name('home');
+Route::get('/appointment', function(){
+    return view('home.appointment');
+})->name('appointment');
+Route::get('/history', function(){
+    return view('home.history');
+})->name('history');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register', [LoginController::class, 'store'])->name('register.store');
 
 Route::middleware('auth')->group(function () {
 
@@ -43,8 +55,3 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
-
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
-Route::get('/register', [LoginController::class, 'register'])->name('register');
-Route::post('/register', [LoginController::class, 'store'])->name('register.store');
