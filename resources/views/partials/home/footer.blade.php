@@ -13,8 +13,8 @@
             <div class="col-md-3 mb-3">
                 <h6 class="fw-bold text-uppercase">Features</h6>
                 <ul class="list-unstyled">
-                    <li><a class="text-white text-decoration-none" href="#">About Us</a></li>
-                    <li><a class="text-white text-decoration-none" href="#">Appointment</a></li>
+                    <li><a class="text-white text-decoration-none" href="#about-us">About Us</a></li>
+                    <li><a class="text-white text-decoration-none" href="{{ route('login') }}">Appointment</a></li>
                     <li><a class="text-white text-decoration-none" href="#">Articles</a></li>
                     <li><a class="text-white text-decoration-none" href="#">Tutorial</a></li>
                 </ul>
