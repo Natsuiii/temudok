@@ -27,10 +27,10 @@
                 <a class="nav-link text-white fw-semibold" href="{{ route('login') }}">History</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white fw-semibold" href="#">Articles</a>
+                <a class="nav-link text-white fw-semibold" href="{{ route('articles') }}">Articles</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link text-white fw-semibold" href="#">Tutorial</a>
+                  <a class="nav-link text-white fw-semibold" href="{{ route('tutorial') }}">Tutorial</a>
               </li>
           </ul>
           <a href="{{ route('login') }}" class="btn btn-warning rounded-pill px-4 py-2 fw-semibold ms-4" style="font-size: 0.9rem; transition: background-color 0.3s ease;">Login</a>

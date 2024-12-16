@@ -15,8 +15,8 @@
                 <ul class="list-unstyled">
                     <li><a class="text-white text-decoration-none" href="#about-us">About Us</a></li>
                     <li><a class="text-white text-decoration-none" href="{{ route('login') }}">Appointment</a></li>
-                    <li><a class="text-white text-decoration-none" href="#">Articles</a></li>
-                    <li><a class="text-white text-decoration-none" href="#">Tutorial</a></li>
+                    <li><a class="text-white text-decoration-none" href="{{ route('articles') }}">Articles</a></li>
+                    <li><a class="text-white text-decoration-none" href="{{ route('tutorial') }}">Tutorial</a></li>
                 </ul>
             </div>
 

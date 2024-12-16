@@ -5,11 +5,11 @@
     <div class="row">
         <!-- Daftar Spesialis -->
         <div style="gap: 10px; padding: 10px; background-color: #f8f9fa; border-radius: 8px;" class="d-flex overflow-x-auto mb-3">
-            <button class="btn btn-outline-primary" id="general" onclick="filterDoctors('general')" style="cursor: pointer;">Dokter Umum</button>
+            <button class="btn btn-outline-primary" id="internist" onclick="filterDoctors('internist')" style="cursor: pointer;">Dokter Spesialis Penyakit Dalam</button>
             <button class="btn btn-outline-primary" id="skin" onclick="filterDoctors('skin')" style="cursor: pointer;">Dokter Spesialis Kulit</button>
             <button class="btn btn-outline-primary" id="ent" onclick="filterDoctors('ent')" style="cursor: pointer;">Dokter Spesialis THT</button>
             <button class="btn btn-outline-primary" id="nutrition" onclick="filterDoctors('nutrition')" style="cursor: pointer;">Dokter Spesialis Gizi</button>
-            <button class="btn btn-outline-primary" id="lungs" onclick="filterDoctors('lungs')" style="cursor: pointer;">Dokter Kesehatan Paru</button>
+            <button class="btn btn-outline-primary" id="obgyn" onclick="filterDoctors('obgyn')" style="cursor: pointer;">Dokter Spesialis Kandungan</button>
             <button class="btn btn-outline-primary" id="dentist" onclick="filterDoctors('dentist')" style="cursor: pointer;">Dokter Gigi</button>
         </div>
         
@@ -25,40 +25,41 @@
 
 <script>
     const doctors = {
-        general: [
-            { name: "Dr. Fendy Wijaya", specialization: "Dokter Umum", experience: "5 Tahun", rating: "90%", price: "Rp 50.000" },
-            { name: "Dr. Owen Tamashi Buntoro", specialization: "Dokter Umum", experience: "3 Tahun", rating: "85%", price: "Rp 45.000" },
-            { name: "Dr. Tiara Andini", specialization: "Dokter Umum", experience: "6 Tahun", rating: "88%", price: "Rp 55.000" },
-            { name: "Dr. Tere Liye", specialization: "Dokter Umum", experience: "4 Tahun", rating: "91%", price: "Rp 52.000" }
+        internist: [
+            { name: "dr. Fendy Wijaya, Sp.PD-KGEH", specialization: "Dokter Spesialis Penyakit Dalam", experience: "15 Tahun", rating: "99%", price: "Rp 80.000" },
+            { name: "dr. Owen Tamashi, Sp.PD-KKV", specialization: "Dokter Spesialis Penyakit Dalam", experience: "3 Tahun", rating: "85%", price: "Rp 45.000" },
+            { name: "dr. Tiara Andini Kesuma, Sp.PD-KR", specialization: "Dokter Spesialis Penyakit Dalam", experience: "6 Tahun", rating: "88%", price: "Rp 55.000" },
+            { name: "dr. Rere Andin Huang, Sp.PD-KAI", specialization: "Dokter Spesialis Penyakit Dalam", experience: "4 Tahun", rating: "91%", price: "Rp 52.000" }
         ],
         skin: [
-            { name: "Dr. Be Justin Regan", specialization: "Dokter Spesialis Kulit", experience: "8 Tahun", rating: "95%", price: "Rp 60.000" },
-            { name: "Dr. Ismail Marzuki", specialization: "Dokter Spesialis Kulit", experience: "6 Tahun", rating: "92%", price: "Rp 58.000" },
-            { name: "Dr. Maria Kusuma", specialization: "Dokter Spesialis Kulit", experience: "10 Tahun", rating: "94%", price: "Rp 65.000" },
-            { name: "Dr. Agus Spididi", specialization: "Dokter Spesialis Kulit", experience: "7 Tahun", rating: "90%", price: "Rp 62.000" }
+            { name: "dr. Kevyn Lim, Sp.KK", specialization: "Dokter Spesialis Kulit", experience: "8 Tahun", rating: "95%", price: "Rp 60.000" },
+            { name: "dr. Ismail Marzuki, Sp.DV", specialization: "Dokter Spesialis Kulit", experience: "6 Tahun", rating: "92%", price: "Rp 58.000" },
+            { name: "dr. Maria Kusuma, Sp.DVE", specialization: "Dokter Spesialis Kulit", experience: "10 Tahun", rating: "94%", price: "Rp 65.000" },
+            { name: "dr. Agus Skibidi, Sp.KK", specialization: "Dokter Spesialis Kulit", experience: "7 Tahun", rating: "90%", price: "Rp 62.000" }
         ],
         ent: [
-            { name: "Dr. Kevyn Aprilyanto", specialization: "Dokter Spesialis THT", experience: "7 Tahun", rating: "88%", price: "Rp 55.000" },
-            { name: "Dr. Edo Syahrini", specialization: "Dokter Spesialis THT", experience: "5 Tahun", rating: "84%", price: "Rp 50.000" },
-            { name: "Dr. Flavia Louis", specialization: "Dokter Spesialis THT", experience: "2 Tahun", rating: "85%", price: "Rp 55.000" }
+            { name: "dr. Justin Regan, Sp.THT-KL", specialization: "Dokter Spesialis THT", experience: "7 Tahun", rating: "88%", price: "Rp 55.000" },
+            { name: "dr. Wilbert Yang, Sp.THT-KL", specialization: "Dokter Spesialis THT", experience: "5 Tahun", rating: "84%", price: "Rp 50.000" },
+            { name: "dr. Flavia Louis, Sp.THT-KL", specialization: "Dokter Spesialis THT", experience: "2 Tahun", rating: "85%", price: "Rp 55.000" }
 
         ],
         nutrition: [
-            { name: "Dr. Alves Latuconsina", specialization: "Dokter Spesialis Gizi", experience: "4 Tahun", rating: "87%", price: "Rp 50.000" },
-            { name: "Dr. Julio Aja", specialization: "Dokter Spesialis Gizi", experience: "3 Tahun", rating: "85%", price: "Rp 48.000" },
-            { name: "Dr. Andrew Nicholas", specialization: "Dokter Spesialis Gizi", experience: "5 Tahun", rating: "88%", price: "Rp 55.000" }
-
+            { name: "dr. Alves Renato, Sp.GK", specialization: "Dokter Spesialis Gizi", experience: "4 Tahun", rating: "87%", price: "Rp 50.000" },
+            { name: "dr. Julio Aja, Sp.GK", specialization: "Dokter Spesialis Gizi", experience: "3 Tahun", rating: "85%", price: "Rp 48.000" },
+            { name: "dr. Andrew Nicholas, Sp.G", specialization: "Dokter Spesialis Gizi", experience: "5 Tahun", rating: "88%", price: "Rp 55.000" },
+            { name: "dr. Sherly Stacia Andani, Sp.G", specialization: "Dokter Spesialis Gizi", experience: "7 Tahun", rating: "94%", price: "Rp 68.000" }
         ],
-        lungs: [
-            { name: "Dr. Leonardo Dahendra", specialization: "Dokter Kesehatan Paru", experience: "10 Tahun", rating: "93%", price: "Rp 70.000" },
-            { name: "Dr. Andrew Alfonso Lie", specialization: "Dokter Kesehatan Paru", experience: "12 Tahun", rating: "96%", price: "Rp 75.000" },
-            { name: "Dr. Lie Kam Tjoeng", specialization: "Dokter Kesehatan Paru", experience: "15 Tahun", rating: "90%", price: "Rp 75.000" }
-
+        obgyn: [
+            { name: "dr. Tiara Intan Kusuma, Sp.OG", specialization: "Dokter Spesialis Kandungan", experience: "5 Tahun", rating: "85%", price: "Rp 50.000" },
+            { name: "dr. Evelyn Angelica, Sp.OG", specialization: "Dokter Spesialis Kandungan", experience: "7 Tahun", rating: "90%", price: "Rp 55.000" },
+            { name: "dr. Valentcia Angelica, Sp.OG", specialization: "Dokter Spesialis Kandungan", experience: "6 Tahun", rating: "89%", price: "Rp 52.000" },
+            { name: "dr. Aurora Florensia, Sp.OG", specialization: "Dokter Spesialis Kandungan", experience: "8 Tahun", rating: "95%", price: "Rp 70.000" }
         ],
         dentist: [
-            { name: "Dr. Tiara Intan Kusuma", specialization: "Dokter Gigi", experience: "5 Tahun", rating: "85%", price: "Rp 50.000" },
-            { name: "Dr. Evelyn Angelica", specialization: "Dokter Gigi", experience: "7 Tahun", rating: "90%", price: "Rp 55.000" },
-            { name: "Dr. Valentcia Angelica", specialization: "Dokter Gigi", experience: "6 Tahun", rating: "89%", price: "Rp 52.000" }
+            { name: "drg. Leonardo Zheng, Sp.KG", specialization: "Dokter Gigi", experience: "10 Tahun", rating: "93%", price: "Rp 70.000" },
+            { name: "drg. Andrew Alfonso, Sp.PM", specialization: "Dokter Gigi", experience: "12 Tahun", rating: "96%", price: "Rp 75.000" },
+            { name: "drg. Christin Lay, Sp.KGA", specialization: "Dokter Gigi", experience: "15 Tahun", rating: "90%", price: "Rp 75.000" }
+
         ]
     };
 
