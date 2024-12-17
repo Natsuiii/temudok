@@ -19,6 +19,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 1,
+            'image_url' => 'img/articles/1.jpg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Apa itu Perlengketan Usus?',
             'content' => "Perlengketan usus (adhesi usus) adalah kondisi ketika jaringan pencernaan dan otot menempel pada dinding abdomen (perut). Pada kondisi normal, permukaan antar organ pencernaan licin dan lembut, sehingga tidak menyebabkan usus lengket.\n\n".
@@ -29,6 +30,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 2,
+            'image_url' => 'img/articles/2.jpeg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Cara Menjaga Jantung Agar Terhindar dari Serangan Jantung',
             'content' => "Penyakit jantung merupakan pembunuh nomor satu di dunia. Penderitanya seringkali tak menduga jika dirinya mengidap penyakit jantung hingga saat serangan terjadi. Maka dari itu, kesehatan jantung perlu sekali untuk dijaga. Oleh karena itu, artikel ini akan membahas beberapa cara menjaga kesehatan jantung sehingga dapat terhindar dari penyakit jantung koroner.\n\n".
@@ -39,6 +41,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 3,
+            'image_url' => 'img/articles/3.jpg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Benarkah Mandi Malam Mengakibatkan Rematik?',
             'content' => "Anda pasti sering mendengar bahwa mandi di malam hari dapat menyebabkan rematik. Pernyataan ini mungkin telah Anda dengar sejak lama dan diturunkan dari generasi ke generasi. Namun, secara medis, apakah pernyataan ini benar? Lantas, apakah rematik itu? Kita akan ungkap kebenarannya di artikel ini.\n\n".
@@ -49,6 +52,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 5,
+            'image_url' => 'img/articles/4.jpeg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Panu dan Pencegahannya',
             'content' => "Panu adalah infeksi kulit yang disebabkan oleh jamur. Jamur penyebab panu sebenarnya adalah salah satu jamur yang memang normal hidup di kulit, yaitu jamur Malassezia. Namun, ketika jamur ini berkembang secara berlebih, terjadilah perubahan warna pada kulit yang merupakan ciri utama panu.\n\n".
@@ -59,6 +63,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 7,
+            'image_url' => 'img/articles/5.jpeg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Double Chin yang Suka Bikin Gak Pede!',
             'content' => "Double chin atau dagu berlipat umumnya terbentuk akibat adanya penumpukan lemak di bawah dagu. Namun, penyebab double chin bukan hanya itu saja. Double chin juga bisa muncul meski tidak ada penimbunan lemak. Orang yang memiliki berat badan berlebih atau obesitas lebih berisiko untuk memiliki double chin. Hal ini karena penumpukan lemak bisa terjadi di wajah, tak terkecuali pada area dagu dan sekitarnya.\n\n".
@@ -69,6 +74,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 8,
+            'image_url' => 'img/articles/6.jpg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Tutorial Punya Kulit Glowing yang Sehat',
             'content' => "Tampilan kulit glowing merupakan tren kecantikan yang tengah berkembang saat ini. Kulit glowing merupakan kulit yang sehat dan bercahaya dengan ciri-ciri warna kulit merata serta tekstur halus dan elastis. Untuk mendapatkan kulit glowing, banyak orang yang melakukan perawatan kecantikan, baik dengan mengaplikasikan produk-produk skincare maupun melakukan perawatan di klinik kecantikan.\n\n".
@@ -79,6 +85,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 9,
+            'image_url' => 'img/articles/7.jpg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Telinga Berdenging, Apakah Bahaya?',
             'content' => "Telinga berdenging, atau yang dikenal dengan istilah medis tinnitus, adalah kondisi di mana seseorang mendengar bunyi yang tidak berasal dari sumber eksternal. Bunyi ini bisa berupa dengungan, siulan, dering, atau bunyi lain yang hanya dapat didengar oleh orang yang mengalaminya. Tinnitus bukanlah penyakit, tetapi merupakan gejala dari berbagai kondisi yang mendasarinya.\n\n".
@@ -89,6 +96,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 10,
+            'image_url' => 'img/articles/8.jpg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Apa Itu Infeksi Sinusitis?',
             'content' => "Sinusitis adalah peradangan atau pembengkakan pada jaringan yang melapisi sinus atau dinding sinus. Sinus merupakan rongga kecil berisi udara dan terletak pada struktur tulang wajah. Gangguan ini dapat membuat lendir tipis yang mengalir keluar dari saluran hidung. Sinus bisa tersumbat karena berisi cairan sehingga bakteri tumbuh dan menyebabkan infeksi.\n\n".
@@ -99,6 +107,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 11,
+            'image_url' => 'img/articles/9.jpeg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Apakah Prosedur Irigasi Telinga Aman Dilakukan?',
             'content' => "Irigasi telinga adalah salah satu prosedur yang dapat dilakukan untuk membersihkan liang telinga dari impaksi serumen atau mengeluarkan benda asing telinga yang berukuran kecil. Impaksi serumen adalah penumpukan serumen yang menyebabkan gangguan pendengaran atau sumbatan telinga. Adanya impaksi serumen dapat menghalangi proses diagnostik yang memerlukan pemeriksaan membran timpani.\n\n".
@@ -109,6 +118,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 12,
+            'image_url' => 'img/articles/10.jpg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Konsep 4 Sehat 5 Sempurna Kini Telah Ditinggalkan',
             'content' => "Slogan 4 Sehat 5 Sempurna adalah pedoman gizi seimbang yang pasti sudah tak asing untuk kamu, Tapi, tahukah kamu bahwa istilah yang ada sejak tahun 1952 itu telah berganti nama? Slogan 4 sehat 5 sempurna kini berganti menjadi Pedoman Gizi Seimbang (PGS), yang dikeluarkan oleh P2PTM Kemenkes RI.\n\n".
@@ -119,6 +129,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 14,
+            'image_url' => 'img/articles/11.jpeg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Mengapa Stunting Menjadi Fokus Pemerintah RI?',
             'content' => "Stunting adalah kondisi gangguan pertumbuhan pada anak yang ditandai dengan tinggi badan anak yang lebih pendek dari anak seusianya. Stunting dapat disebabkan oleh berbagai hal, seperti kurangnya asupan gizi pada ibu hamil dan anak, infeksi berulang, stimulasi psikososial yang tidak memadai, dan sanitasi yang buruk. Stunting dapat berdampak pada kecerdasan anak dan timbulnya penyakit degeneratif seperti obesitas, diabetes, dan penyakit jantung koroner.\n\n".
@@ -129,6 +140,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 15,
+            'image_url' => 'img/articles/12.jpg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Pola Makan yang Baik untuk Penderita Obesitas',
             'content' => "Obesitas adalah kondisi ketika lemak yang menumpuk di dalam tubuh sangat banyak akibat kalori masuk lebih banyak dibandingkan yang dibakar. Obesitas merupakan akumulasi lemak abnormal atau berlebihan yang bisa menyebabkan keadaan berat badan seseorang melebihi dari standar kesehatan yang telah ditentukan sehingga dapat mengganggu kesehatan.\n\n".
@@ -139,6 +151,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 16,
+            'image_url' => 'img/articles/13.jpeg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Bahaya Kehamilan Usia Dini Bagi Remaja',
             'content' => "Usia ideal bagi perempuan untuk hamil adalah 20–30 tahun atau di awal usia 30-an. Menjalani kehamilan di bawah usia 20 tahun dapat dikatakan berisiko karena berdasarkan anatomi tubuh, perkembangan panggul perempuan pada usia tersebut belum sempurna sehingga dapat menyebabkan kesulitan saat melahirkan.\n\n".
@@ -149,6 +162,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 17,
+            'image_url' => 'img/articles/14.jpg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Apa Itu Kehamilan Ektopik (Ectopic Pregnancy)?',
             'content' => "Kehamilan ektopik adalah kehamilan yang terjadi di luar rahim. Pada kehamilan normal, telur yang sudah dibuahi akan melalui saluran tuba falopi yang menghubungkan indung telur dengan rahim menuju ke rahim. Telur tersebut akan melekat pada rahim dan mulai tumbuh menjadi janin. Namun pada kehamilan ektopik, telur yang sudah dibuahi akan menempel dan tumbuh di tempat yang tidak semestinya.\n\n".
@@ -159,6 +173,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 19,
+            'image_url' => 'img/articles/15.jpg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Bagaimanakah Proses Persalinan secara Normal Berlangsung?',
             'content' => "Proses melahirkan normal yang dialami setiap ibu hamil bisa berbeda-beda. Namun, pada dasarnya ada 3 tahapan proses yang umumnya dilalui oleh ibu hamil sebelum akhirnya bertemu dengan buah hati tercinta. Tahapan proses melahirkan normal dimulai ketika ibu hamil mulai mengalami kontraksi rahim. Namun, perlu diingat bahwa kontraksi ini berbeda dengan kontraksi palsu.\n\n".
@@ -169,6 +184,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 20,
+            'image_url' => 'img/articles/16.jpg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Karang Gigi dan Bau Mulut',
             'content' => "Karang gigi adalah timbunan plak yang membentuk lapisan seperti kotoran yang mengeras di gigi. Berbeda dengan plak biasa, kondisi ini lebih sulit untuk dihilangkan dengan sikat gigi biasa. Oleh karena itu, pembersihan masalah ini hanya bisa dilakukan oleh dokter gigi. Jika tidak kamu bersihkan, ini bisa menimbulkan masalah pada gigi dan gusi, seperti gingivitis atau radang gusi.\n\n".
@@ -179,6 +195,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 21,
+            'image_url' => 'img/articles/17.jpg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Waspadai Bahaya Tindik Lidah!',
             'content' => "Tindik lidah merupakan salah satu bentuk ekspresi diri yang cukup populer di kalangan remaja. Di balik alasan estetika, tindik lidah bisa berbahaya bagi kesehatan, terutama kesehatan gigi dan mulut. Proses tindik lidah dilakukan dengan cara menusuk lidah menggunakan jarum untuk membuat lubang kecil. Setelah itu, perhiasan berbentuk cincin atau bulatan kecil akan dimasukkan ke dalam lubang tersebut.\n\n".
@@ -189,6 +206,7 @@ class ArticleSeeder extends Seeder
 
         Article::factory()->create([
             'doctor_id' => 22,
+            'image_url' => 'img/articles/18.jpg',
             'post_date' => $faker->dateTimeThisYear(),
             'title' => 'Bagaimana Jika Gigi Anak Berlubang?',
             'content' => "Gigi berlubang termasuk keluhan umum pada anak-anak dan sebaiknya tidak boleh disepelekan karena bisa menyebabkan gigi nyeri atau gigi copot, namun juga bahaya kesehatan lainnya. Penyebab atau faktor gigi berlubang pada anak sangat banyak, antara lain bakteri dalam plak akibat anak jarang menyikat gigi, sehingga terjadi penumpukan plak di dalam rongga mulut.\n\n".

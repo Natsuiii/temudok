@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +13,9 @@ class HomeController extends Controller
     }
 
     public function articles(){
-        return view('home.article');
+        $category = Category::with(['doctors.articles'])->get();
+
+        return view('home.article', compact('category'));
     }
 
     public function tutorial(){

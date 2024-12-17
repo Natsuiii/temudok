@@ -34,7 +34,7 @@ class CategorySeeder extends Seeder
         ]);
 
         Category::factory()->create([
-            'category_name' => 'Perawatan Gigi'
+            'category_name' => 'Perawatan Gigi dan Mulut'
         ]);
     }
 }
