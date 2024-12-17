@@ -37,7 +37,7 @@
         </div>
 
         <!-- Learn More Button -->
-        <a href="{{ url('/about-us') }}" class="btn btn-outline-light px-4 py-2 mt-4 text-decoration-none" 
+        <a href="{{ url('#about-us') }}" class="btn btn-outline-light px-4 py-2 mt-4 text-decoration-none" 
            style="font-size: 1rem; border: 2px solid #fff; border-radius: 25px; transition: all 0.3s ease-in-out;">
            Learn More
         </a>
@@ -47,7 +47,7 @@
 <div class="container my-5">
     <!-- What is Temudok? -->
     <div class="text-center mb-5">
-        <h1 class="fw-bold">What is Temudok?</h1>
+        <h1 class="fw-bold" id="about-us">What is Temudok?</h1>
         <p class="lead" style="line-height: 1.6;">
             Temudok adalah platform online booking untuk kebutuhan medis yang mempermudah Anda 
             menemukan dokter terbaik, memesan konsultasi, dan mengatur jadwal secara efisien, 

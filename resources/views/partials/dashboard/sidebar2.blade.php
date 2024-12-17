@@ -17,7 +17,7 @@
         <div class="sidebar-user">
             <div class="d-flex justify-content-center">
                 <div class="flex-shrink-0">
-                    <img src="{{ asset('img\default-admin.jpeg') }}" class="avatar img-fluid rounded me-1"
+                    <img src="{{ asset('img/dashboard/default-admin.jpeg') }}" class="avatar img-fluid rounded me-1"
                         alt="Jassa">
                 </div>
                 <div class="flex-grow-1 ps-2">
@@ -51,31 +51,40 @@
             <li class="sidebar-header">
                 Admin
             </li>
-            <li class="sidebar-item active">
+            <li class="sidebar-item {{ Route::is('dashboard') ? 'active' : '' }}">
                 <a class="sidebar-link" href="{{ route('dashboard') }}">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+                    <i class="fa-solid fa-sliders align-middle"></i> <span class="align-middle">Dashboard</span>
                 </a>
             </li>
-            <li class="sidebar-item">
-                <a data-bs-target="#user" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
-                    <i class="align-middle" data-feather="user"></i> <span class="align-middle">User</span>
+            <li class="sidebar-item {{ Route::is('user.*') ? 'active' : '' }}">
+                <a data-bs-target="#user" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="{{ Route::is('user.*') ? 'true' : 'false' }}">
+                    <i class="fa-regular fa-user align-middle"></i> <span class="align-middle">User</span>
                 </a>
-                <ul id="user" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('user.create') }}">Create</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('user.index') }}">List</a></li>
+                <ul id="user" class="sidebar-dropdown list-unstyled collapse {{ Route::is('user.*') ? 'show' : '' }}" data-bs-parent="#sidebar">
+                    <li class="sidebar-item {{ Route::is('user.create') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('user.create') }}">Create</a></li>
+                    <li class="sidebar-item {{ Route::is('user.index') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('user.index') }}">List</a></li>
                 </ul>
             </li>
 
             <li class="sidebar-header">
                 Doctor
             </li>
-            <li class="sidebar-item">
-                <a data-bs-target="#schedule" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
-                    <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Manage Schedule</span>
+            <li class="sidebar-item {{ Route::is('schedule.*') ? 'active' : '' }}">
+                <a data-bs-target="#schedule" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="{{ Route::is('schedule.*') ? 'true' : 'false' }}">
+                    <i class="fa-regular fa-calendar align-middle"></i> <span class="align-middle">Manage Schedule</span>
                 </a>
-                <ul id="schedule" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('schedule.create') }}">Create</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('schedule.index') }}">List</a></li>
+                <ul id="schedule" class="sidebar-dropdown list-unstyled collapse {{ Route::is('schedule.*') ? 'show' : '' }}" data-bs-parent="#sidebar">
+                    <li class="sidebar-item {{ Route::is('schedule.create') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('schedule.create') }}">Create</a></li>
+                    <li class="sidebar-item {{ Route::is('schedule.index') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('schedule.index') }}">List</a></li>
+                </ul>
+            </li>
+            <li class="sidebar-item {{ Route::is('article.*') ? 'active' : '' }}">
+                <a data-bs-target="#article" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="{{ Route::is('article.*') ? 'true' : 'false' }}">
+                    <i class="fa-regular fa-newspaper align-middle"></i> <span class="align-middle">Article</span>
+                </a>
+                <ul id="article" class="sidebar-dropdown list-unstyled collapse {{ Route::is('article.*') ? 'show' : '' }}" data-bs-parent="#sidebar">
+                    <li class="sidebar-item {{ Route::is('article.create') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('article.create') }}">Create</a></li>
+                    <li class="sidebar-item {{ Route::is('article.index') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('article.index') }}">List</a></li>
                 </ul>
             </li>
         </ul>

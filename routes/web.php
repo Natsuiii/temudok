@@ -2,22 +2,27 @@
 
 use App\Http\Controllers\AddUserController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UnavailableTimeController;
 use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function(){
-    return view('home.index');
-})->name('home');
-Route::get('/appointment', function(){
-    return view('home.appointment');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/appointments', function(){
+    return view('home.appointments');
 })->name('appointment');
 Route::get('/history', function(){
     return view('home.history');
 })->name('history');
+
+Route::get('/articles', [HomeController::class, 'articles'])->name('articles');
+Route::get('/articles/{category_id}/{article_id}', [HomeController::class, 'details'])->name('articles.detail');
+Route::get('/tutorial', [HomeController::class, 'tutorial'])->name('tutorial');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
@@ -51,7 +56,11 @@ Route::middleware('auth')->group(function () {
     })->name('calendar');
 
     Route::resource('appointment', AppointmentController::class);
+
     Route::get('/get-unavailable-times/{doctorId}', [AppointmentController::class, 'getUnavailableTimes']);
+
+    Route::resource('/article', ArticleController::class)->parameters(['articles' => 'slug']);
+    Route::delete('/articles/bulk-destroy', [ArticleController::class, 'bulkDestroy'])->name('articles.bulkDestroy');
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });

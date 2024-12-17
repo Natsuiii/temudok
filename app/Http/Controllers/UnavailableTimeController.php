@@ -16,7 +16,7 @@ class UnavailableTimeController extends Controller
      */
     public function index()
     {
-        $users = UnavailableTime::where('doctor_id', Auth::user()->id)->with('doctor')->get();
+        $users = UnavailableTime::where('doctor_id', Auth::user()->id)->with('doctor')->orderBy('created_at', 'desc')->get();
 
         foreach ($users as $time) {
             $time->unavailable_time = Carbon::parse($time->date_time)->format('d F Y');
@@ -47,9 +47,9 @@ class UnavailableTimeController extends Controller
         ]);
 
         $dateString = $request->unavailable_time;
-
+        
         $dateTime = Carbon::createFromFormat('d F Y', $dateString);
-
+        
         UnavailableTime::create([
             'doctor_id' => Auth::user()->id,
             'unavailable_time' => $dateTime
@@ -63,7 +63,7 @@ class UnavailableTimeController extends Controller
      */
     public function show(UnavailableTime $unavailableTime)
     {
-        dd($unavailableTime);
+        //
     }
 
     /**

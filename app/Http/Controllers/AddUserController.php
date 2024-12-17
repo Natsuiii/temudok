@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,8 +16,10 @@ class AddUserController extends Controller
      */
     public function index()
     {
-        $users = User::with('role')->where('id', '!=', Auth::user()->id)->get();
-        return view('user.index', compact('users'));
+        $users = User::with('role')->where('id', '!=', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+        return view('user.index', [
+            'users' => $users,
+        ]);
     }
 
     /**
@@ -25,7 +28,11 @@ class AddUserController extends Controller
     public function create()
     {
         $roles = Role::all();
-        return view('user.create', compact('roles'));
+        $categories = Category::all();
+        return view('user.create', [
+            'roles' => $roles,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -33,15 +40,13 @@ class AddUserController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users,email',
             'password' => 'required|min:8',
             'role' => 'required|exists:roles,id',
+            'category' => 'exists:categories,id',
         ]);
-
-        // dd($request->role);
 
         $user = User::create([
             'name' => $request->name,
@@ -49,6 +54,7 @@ class AddUserController extends Controller
             'password' => bcrypt($request->password),
             'role_id' => $request->role,
             'profile_photo_path' => null,
+            'specialization_id' => $request->category
         ]);
 
         return redirect()->route('user.create')->with('success', 'User created successfully.');
@@ -68,7 +74,8 @@ class AddUserController extends Controller
     public function edit(User $user)
     {
         $roles = Role::all();
-        return view('user.edit', compact('user', 'roles'));
+        $categories = Category::all();
+        return view('user.edit', compact('user', 'roles', 'categories'));
     }
 
     /**
@@ -79,11 +86,17 @@ class AddUserController extends Controller
         $request->validate([
             'name' => 'required',
             'role' => 'required|exists:roles,id',
+            'category' => 'exists:categories,id',
         ]);
+
+        if($request->category != 2){
+            $user->specialization_id = null;
+        }
 
         $user->update([
             'name' => $request->name,
             'role_id' => $request->role,
+            'specialization_id' => $request->category
         ]);
 
         return redirect()->route('user.index')->with('success', 'User updated successfully.');
@@ -94,7 +107,6 @@ class AddUserController extends Controller
     public function bulkDestroy(Request $request)
     {
         try {
-            // Validasi ID yang dipilih
             $request->validate([
                 'ids' => 'required|min:1',
                 'ids.*' => 'exists:users,id',
@@ -106,28 +118,21 @@ class AddUserController extends Controller
             
             $ids = explode(',', $request->ids);
 
-            // Hapus banyak user berdasarkan ID
             User::destroy($ids);
 
-            // Kirim pesan sukses
             return back()->with('success', 'Users deleted successfully.');
         } catch (ValidationException $e) {
-            // Tangkap error validasi dan kirim pesan error
             return back()->withErrors($e->validator)->withInput();
         }
     }
 
     public function destroy(User $user, Request $request)
     {
-        // dd($request);
         try {
-            // Hapus user
             $user->delete();
 
-            // Kirim pesan sukses
             return back()->with('success', 'User deleted successfully.');
         } catch (ValidationException $e) {
-            // Tangkap error validasi dan kirim pesan error
             return back()->withErrors($e->validator)->withInput();
         }
     }

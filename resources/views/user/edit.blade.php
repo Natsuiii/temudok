@@ -30,6 +30,7 @@
 
         <form action="{{ route('user.update', $user->id) }}" method="POST" enctype="multipart/form-data" id="userForm">
             @csrf
+            @method('PUT')
             <div class="row">
                 {{-- Left Col --}}
                 <div class="col-md-8">
@@ -81,7 +82,7 @@
                                     @if ($user->role_id == $role->id)
                                         <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
                                     @else
-                                        <option value="{{ $role->id }}">{{ $role->name }}"</option>
+                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
                                     @endif
                                 @endforeach
                             </select>
@@ -93,6 +94,28 @@
                             <input class="form-control @error('profile') is-invalid @enderror" type="file" id="profile"
                                 name="profile">
                             @error('profile')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="card p-0" id="specialization">
+                        <div class="card-header" style="background-color: #222e3c">
+                            <h5 class="card-title text-light">Doctor Specialization</h5>
+                        </div>
+                        <div class="card-body overflow-auto">
+                            <label for="category" class="form-label">Specilization</label>
+                            <select class="form-select @error('category') is-invalid @enderror mb-3" name="category"
+                                id="category">
+                                <option value="" selected disabled>Please Choose One</option>
+                                @foreach ($categories as $category)
+                                    @if ($user->specialization_id == $category->id)
+                                        <option value="{{ $category->id }}" selected>{{ $category->category_name }}</option>
+                                    @else
+                                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            @error('category')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
@@ -119,3 +142,26 @@
         </form>
     </div>
 @endsection
+
+@push('scripts')
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script>
+        window.onload = function() {
+            if ($('#role').val() == 2) {
+                $('#specialization').show();
+            } else {
+                $('#specialization').hide();
+                $('#category').val('');
+            }
+        }
+
+        $('#role').on('change', function() {
+            if ($(this).val() == 2) {
+                $('#specialization').show();
+            } else {
+                $('#specialization').hide();
+                $('#category').val('');
+            }
+        });
+    </script>
+@endpush

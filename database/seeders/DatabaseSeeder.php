@@ -43,6 +43,20 @@ class DatabaseSeeder extends Seeder
             'role_id' => 2
         ]);
 
+        User::factory()->create([
+            'name' => 'Ahau',
+            'email' => 'ahau@gmail.com',
+            'password' => bcrypt('password'),
+            'role_id' => 2
+        ]);
+
+        User::factory()->create([
+            'name' => 'Kepim',
+            'email' => 'kepin@gmail.com',
+            'password' => bcrypt('password'),
+            'role_id' => 2
+        ]);
+
         AppointmentStatus::factory()->create([
             'status_name' => 'Scheduled',
         ]);
@@ -57,6 +71,11 @@ class DatabaseSeeder extends Seeder
 
         AppointmentStatus::factory()->create([
             'status_name' => 'Canceled',
+        ]);
+
+        $this->call([
+            CategorySeeder::class,
+            ArticleSeeder::class
         ]);
     }
 }

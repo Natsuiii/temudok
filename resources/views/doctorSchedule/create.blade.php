@@ -33,6 +33,15 @@
             </div>
         @endif
 
+        @if (session('error'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="alert-message">
+                    {{ session('error') }}
+                </div>
+            </div>
+        @endif
+
         <form action="{{ route('schedule.store') }}" method="POST" enctype="multipart/form-data" id="userForm">
             @csrf
             <div class="row">
