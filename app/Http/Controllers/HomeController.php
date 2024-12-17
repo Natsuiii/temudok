@@ -13,9 +13,10 @@ class HomeController extends Controller
     }
 
     public function articles(){
-        $category = Category::with(['doctors.articles'])->get();
+        $categories = Category::all();
+        $articles = Article::orderBy('created_at', 'desc')->with(['category', 'doctor'])->paginate(12);
 
-        return view('home.article', compact('category'));
+        return view('home.article', compact(['categories', 'articles']));
     }
 
     public function details($category_id, $article_id){

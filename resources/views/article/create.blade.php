@@ -69,8 +69,11 @@
                                     <select name="category" id="category"
                                         class="form-select @error('category') is-invalid @enderror">
                                         <option value="" selected disabled>Please Choose One</option>
-                                        <option value="1" {{ old('category') == '1' ? 'selected' : '' }}>Tes doang
-                                        </option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}" {{ old('category') == $category->id ? 'selected' : '' }}>
+                                                {{ $category->category_name }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                     @error('category')
                                         <div class="invalid-feedback">{{ $message }}</div>

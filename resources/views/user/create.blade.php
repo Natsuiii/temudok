@@ -1,5 +1,13 @@
 @extends('layouts.dashboard2')
 
+@push('css')
+    <style>
+        .hilangkan {
+            display: none !important;
+        }
+    </style>
+@endpush
+
 @section('content')
     <div class="container-fluid p-0">
         <div class="row mb-2 mb-xl-3">
@@ -97,6 +105,28 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="card p-0" id="specialization">
+                        <div class="card-header" style="background-color: #222e3c">
+                            <h5 class="card-title text-light">Doctor Specialization</h5>
+                        </div>
+                        <div class="card-body overflow-auto">
+                            <label for="categories" class="form-label">Specilization</label>
+                            <select class="form-select @error('categories') is-invalid @enderror mb-3" name="categories"
+                                id="categories">
+                                <option value="" selected disabled>Please Choose One</option>
+                                @foreach ($categories as $categories)
+                                    @if (old('categories') == $categories->id)
+                                        <option value="{{ $categories->id }}" selected>{{ $categories->name }}</option>
+                                    @else
+                                        <option value="{{ $categories->id }}">{{ $categories->category_name }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            @error('categories')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
                 {{-- End Left Col --}}
 
@@ -119,3 +149,26 @@
         </form>
     </div>
 @endsection
+
+@push('scripts')
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script>
+        window.onload = function() {
+            if ($('#role').val() == 2) {
+                $('#specialization').show();
+            } else {
+                $('#specialization').hide();
+                $('#category').val('');
+            }
+        }
+
+        $('#role').on('change', function() {
+            if ($(this).val() == 2) {
+                $('#specialization').show();
+            } else {
+                $('#specialization').hide();
+                $('#category').val('');
+            }
+        });
+    </script>
+@endpush

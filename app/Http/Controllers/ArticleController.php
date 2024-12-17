@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('article.create');
+        $categories = Category::all();
+        return view('article.create', compact('categories'));
     }
 
     /**
@@ -49,7 +51,7 @@ class ArticleController extends Controller
 
         Article::create([
             'doctor_id' => Auth::user()->id,
-            'category_id' => rand(1, 10),
+            'category_id' => $request->category,
             'title' => $request->title,
             'slug' => $slug,
             'content' => $request->content,

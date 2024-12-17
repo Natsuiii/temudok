@@ -63,7 +63,7 @@ class UnavailableTimeController extends Controller
      */
     public function show(UnavailableTime $unavailableTime)
     {
-        dd($unavailableTime);
+        //
     }
 
     /**

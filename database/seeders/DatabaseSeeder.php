@@ -58,5 +58,9 @@ class DatabaseSeeder extends Seeder
         AppointmentStatus::factory()->create([
             'status_name' => 'Canceled',
         ]);
+
+        $this->call([
+            CategorySeeder::class,
+        ]);
     }
 }

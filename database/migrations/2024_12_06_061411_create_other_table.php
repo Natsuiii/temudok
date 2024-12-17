@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('patient_id')->constrained('users', 'id')->onDelete('cascade');
             $table->foreignId('doctor_id')->constrained('users', 'id')->onDelete('cascade');
-            $table->foreignId('appointment_id')->constrained('appointments', 'id')->onDelete('cascade');
             $table->bigInteger('amount');
             $table->boolean('payment_status');
             $table->timestamps();

@@ -62,4 +62,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Appointment::class, 'patient_id', 'id');
     }
+
+    public function articles(){
+        return $this->hasMany(Article::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class, 'specilization_id', 'id');
+    }
 }
