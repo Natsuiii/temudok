@@ -20,6 +20,7 @@ Route::get('/history', function(){
 })->name('history');
 
 Route::get('/articles', [HomeController::class, 'articles'])->name('articles');
+Route::get('/articles/{category_id}/{article_id}', [HomeController::class, 'details'])->name('articles.detail');
 Route::get('/tutorial', [HomeController::class, 'tutorial'])->name('tutorial');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');

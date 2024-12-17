@@ -26,7 +26,7 @@ class CategorySeeder extends Seeder
         ]);
 
         Category::factory()->create([
-            'category_name' => 'Gizi dan Makanan Sehat'
+            'category_name' => 'Gizi Sehat'
         ]);
 
         Category::factory()->create([
@@ -34,7 +34,7 @@ class CategorySeeder extends Seeder
         ]);
 
         Category::factory()->create([
-            'category_name' => 'Perawatan Gigi dan Mulut'
+            'category_name' => 'Gigi dan Mulut'
         ]);
     }
 }

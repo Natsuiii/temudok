@@ -18,6 +18,12 @@ class HomeController extends Controller
         return view('home.article', compact('category'));
     }
 
+    public function details($category_id, $article_id){
+        $article = Article::find($article_id);
+        
+        return view('home.detail')->with('article', $article);
+    }
+
     public function tutorial(){
         return view('home.tutorial');
     }

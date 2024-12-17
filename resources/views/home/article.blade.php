@@ -22,14 +22,16 @@
             <div class="row">
                 @foreach ($articles as $article)
                     <div class="col-md-4 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <img src="{{ $article->image_url }}" class="card-img-top" style="height: 250px;" alt="">
-                            <div class="card-body">
-                                <h6 class="card-title fw-bold">{{ $article->title }}</h6>
-                                <span class="badge bg-primary mb-2">{{ $c->category_name }}</span>
-                                <p class="card-text text-muted">{{ $article->description }}</p>
+                        <a href="{{ route('articles.detail', ['category_id' => $c->id, 'article_id' => $article->id]) }}" class="text-decoration-none">
+                            <div class="card h-100 shadow-sm">
+                                <img src="{{ asset($article->image_url) }}" class="card-img-top" style="height: 230px;" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">{{ $article->title }}</h5>
+                                    <span class="badge bg-primary mb-2">{{ $c->category_name }}</span>
+                                    <p class="card-text text-muted fs-6 fw-light">{{ $article->description }}</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
