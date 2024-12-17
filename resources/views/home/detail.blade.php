@@ -10,9 +10,12 @@
         </div>
 
         <!-- Article Image -->
-        <img src="{{ asset($article->image_url) }}" alt="" class="img-fluid rounded" style="width: 800px; height: 500px; margin-bottom: 30px;">
+        <img src="{{ asset($article->image_url) }}" alt="" class="img-fluid rounded" style="width: 600px; height: 400px; margin-bottom: 30px;">
 
         <!-- Article Content -->
-        <p>{{ $article->content }}</p>
+        <p>{{ $article->content1 }}</p>
+        <p>{{ $article->content2 }}</p>
+        <p>{{ $article->content3 }}</p>
+        <br>
     </div>
 @endsection

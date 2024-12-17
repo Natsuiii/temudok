@@ -18,7 +18,9 @@ return new class extends Migration
             $table->date('post_date');
             $table->string('title');
             $table->string('description');
-            $table->longText('content');
+            $table->longText('content1');
+            $table->longText('content2');
+            $table->longText('content3');
             $table->timestamps();
         });
     }
