@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AddUserController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UnavailableTimeController;
@@ -51,7 +52,11 @@ Route::middleware('auth')->group(function () {
     })->name('calendar');
 
     Route::resource('appointment', AppointmentController::class);
+
     Route::get('/get-unavailable-times/{doctorId}', [AppointmentController::class, 'getUnavailableTimes']);
+
+    Route::resource('/article', ArticleController::class)->parameters(['articles' => 'slug']);
+    Route::delete('/articles/bulk-destroy', [ArticleController::class, 'bulkDestroy'])->name('articles.bulkDestroy');
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
