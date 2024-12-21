@@ -14,27 +14,33 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::factory()->create([
-            'category_name' => 'Penyakit Dalam'
+            'category_name' => 'Penyakit Dalam',
+            'added_by' => 'Administrator',
         ]);
 
         Category::factory()->create([
-            'category_name' => 'Kulit dan Kecantikan'
+            'category_name' => 'Kulit dan Kecantikan',
+            'added_by' => 'Administrator',
         ]);
 
         Category::factory()->create([
-            'category_name' => 'Telinga, Hidung, dan Tenggorokan'
+            'category_name' => 'Telinga, Hidung, dan Tenggorokan',
+            'added_by' => 'Administrator',
         ]);
 
         Category::factory()->create([
-            'category_name' => 'Gizi Sehat'
+            'category_name' => 'Gizi Sehat',
+            'added_by' => 'Administrator',
         ]);
 
         Category::factory()->create([
-            'category_name' => 'Kehamilan'
+            'category_name' => 'Kehamilan',
+            'added_by' => 'Administrator',
         ]);
 
         Category::factory()->create([
-            'category_name' => 'Gigi dan Mulut'
+            'category_name' => 'Gigi dan Mulut',
+            'added_by' => 'Administrator',
         ]);
     }
 }

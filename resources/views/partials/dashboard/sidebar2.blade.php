@@ -65,6 +65,15 @@
                     <li class="sidebar-item {{ Route::is('user.index') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('user.index') }}">List</a></li>
                 </ul>
             </li>
+            <li class="sidebar-item {{ Route::is('category.*') ? 'active' : '' }}">
+                <a data-bs-target="#category" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="{{ Route::is('category.*') ? 'true' : 'false' }}">
+                    <i class="fa-solid fa-layer-group align-middle"></i> <span class="align-middle">category</span>
+                </a>
+                <ul id="category" class="sidebar-dropdown list-unstyled collapse {{ Route::is('category.*') ? 'show' : '' }}" data-bs-parent="#sidebar">
+                    <li class="sidebar-item {{ Route::is('category.create') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('category.create') }}">Create</a></li>
+                    <li class="sidebar-item {{ Route::is('category.index') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('category.index') }}">List</a></li>
+                </ul>
+            </li>
 
             <li class="sidebar-header">
                 Doctor
