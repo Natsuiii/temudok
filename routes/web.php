@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddUserController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -61,6 +62,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/article', ArticleController::class)->parameters(['articles' => 'slug']);
     Route::delete('/articles/bulk-destroy', [ArticleController::class, 'bulkDestroy'])->name('articles.bulkDestroy');
+
+    Route::resource('/admin/category', CategoryController::class);
+    Route::delete('/admin/bulk-destroy/category', [CategoryController::class, 'bulkDestroy'])->name('category.bulkDestroy');
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
