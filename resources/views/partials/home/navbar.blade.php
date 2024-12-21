@@ -15,11 +15,13 @@
           {{-- Linknya di atur ya bang --}}
           <ul class="navbar-nav ms-auto gap-4">
               <li class="nav-item">
-                  <a class="nav-link active text-white fw-semibold" aria-current="page" href="{{ route('home') }}">Home</a>
+                  <a class="nav-link text-white fw-semibold {{ Route::is('home') ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}">Home</a>
               </li>
-              <li class="nav-item">
+              @if(Route::is('home'))
                   <a class="nav-link text-white fw-semibold" href="#about-us">About</a>
-              </li>
+              @else
+                  <a class="nav-link text-white fw-semibold" href="{{ route('home') }}">About</a>
+              @endif
               <li class="nav-item">
                 <a class="nav-link text-white fw-semibold" href="{{ route('login') }}">Appointment</a>
               </li>
@@ -27,11 +29,26 @@
                 <a class="nav-link text-white fw-semibold" href="{{ route('login') }}">History</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white fw-semibold" href="{{ route('articles') }}">Articles</a>
+                <a class="nav-link text-white fw-semibold {{ Route::is('articles', 'articles.detail') ? 'active' : '' }}" href="{{ route('articles') }}">Articles</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link text-white fw-semibold" href="{{ route('tutorial') }}">Tutorial</a>
+                  <a class="nav-link text-white fw-semibold {{ Route::is('tutorial') ? 'active' : '' }}" href="{{ route('tutorial') }}">Tutorial</a>
               </li>
+              <li class="nav-item dropdown d-flex align-items-center justify-content-center">
+                <a class="" href="#" data-bs-toggle="dropdown">
+                    <img src="{{ asset('img/dashboard/flags/us.png') }}" alt="English" width="20">
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                    <a class="dropdown-item" href="#">
+                        <img src="{{ asset('img/dashboard/flags/us.png') }}" alt="English" width="20" class="align-middle me-1">
+                        <span class="align-middle">English</span>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <img src="{{ asset('img/dashboard/flags/id.png') }}" alt="Indonesia" width="20" class="align-middle me-1">
+                        <span class="align-middle">Indonesia</span>
+                    </a>
+                </div>
+            </li>
           </ul>
           <a href="{{ route('login') }}" class="btn btn-warning rounded-pill px-4 py-2 fw-semibold ms-4" style="font-size: 0.9rem; transition: background-color 0.3s ease;">Login</a>
         </div>

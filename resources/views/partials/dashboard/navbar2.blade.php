@@ -132,18 +132,6 @@
                         <span class="align-middle">English</span>
                     </a>
                     <a class="dropdown-item" href="#">
-                        <img src="{{ asset('img/dashboard/flags/es.png') }}" alt="Spanish" width="20" class="align-middle me-1">
-                        <span class="align-middle">Spanish</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <img src="{{ asset('img/dashboard/flags/ru.png') }}" alt="Russian" width="20" class="align-middle me-1">
-                        <span class="align-middle">Russian</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <img src="{{ asset('img/dashboard/flags/de.png') }}" alt="German" width="20" class="align-middle me-1">
-                        <span class="align-middle">German</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
                         <img src="{{ asset('img/dashboard/flags/id.png') }}" alt="Indonesia" width="20" class="align-middle me-1">
                         <span class="align-middle">Indonesia</span>
                     </a>
