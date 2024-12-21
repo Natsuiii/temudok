@@ -5,7 +5,7 @@
         <!-- Header Section -->
         <h3 class="fw-bold py-4">Baca Artikel Terbaik dari Dokter Terbaik</h3>
         <!-- Tabs -->
-        <ul class="nav nav-pills mb-3 d-flex gap-3" id="category-tabs">
+        <ul class="nav nav-pills mb-3 d-flex gap-3 overflow-x-auto" id="category-tabs">
             <li class="nav-item">
                 <a class="nav-link active" href="{{ request()->fullUrlWithQuery(['category' => 'all']) }}"
                     data-category="all">Semua Kategori</a>
@@ -21,7 +21,7 @@
         <div class="row" id="article-list">
             @foreach ($articles as $article)
                 <div class="col-md-4 mb-4 article-item" data-category="{{ $article->category->category_name }}">
-                    <a href="{{ route('articles.detail', [$article->category->id, $article->id]) }}"
+                    <a href="{{ route('articles.detail', $article->slug) }}"
                         class="text-decoration-none">
                         <div class="card h-100 shadow-sm">
                             <img src="{{ $article->thumbnail ? asset($article->thumbnail) : asset('/img/home/journey.png') }}"
