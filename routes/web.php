@@ -48,9 +48,9 @@ Route::middleware('auth')->group(function () {
 
     // routes/web.php
     Route::get('/send-email/{email}', [EmailController::class, 'sendEmailNotification']);
-    Route::get('/appointment/table', function () {
-        return view('appointment.table');
-    })->name('appointment.table');
+    Route::get('/appointment', function () {
+        return view('appointment.index');
+    })->name('appointment.index');
 
     Route::get('/calendar', function () {
         return view('calendar.index');
@@ -67,4 +67,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/bulk-destroy/category', [CategoryController::class, 'bulkDestroy'])->name('category.bulkDestroy');
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
 });
