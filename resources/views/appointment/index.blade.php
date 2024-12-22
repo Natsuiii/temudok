@@ -32,7 +32,6 @@
     <!-- /.content-header -->
 
     <div class="container-fluid px-4">
-        {{-- @if (Auth::user()->role_id == '2') --}}
         <div class="card">
             <div class="card-header" style="background-color: #0e2238">
                 <div class="row text-light px-2">
@@ -67,16 +66,16 @@
                                     <td>{{ $appointment->appointment_date }}</td>
                                     <td><span class="badge bg-{{ $appointment->status->status_name == 'Accept' ? 'success' : ($appointment->status->status_name == 'Reject' ? 'danger' : 'warning') }}">{{ $appointment->status->status_name }}</span></td>
                                     <td>
-                                        <form action="{{ route('appointment.update', $appointment->id) }}" method="POST" style="display:inline;" id="single-delete-form">
+                                        <form action="{{ route('appointment.update', $appointment->id) }}" method="POST" style="display:inline;" id="update-status-form">
                                             @csrf
                                             @method('PUT')
-                                            <button type="submit" name="action" value="accepted" class="btn btn-success btn-sm">
+                                            <button type="submit" name="action" value="accepted" class="btn btn-success btn-sm" id="update-status">
                                                 <i class="fa-solid fa-check"></i>
                                             </button>
-                                            <button type="submit" name="action" value="rejected" class="btn btn-danger btn-sm">
+                                            <button type="submit" name="action" value="rejected" class="btn btn-danger btn-sm" id="update-status">
                                                 <i class="fa-solid fa-xmark"></i>
                                             </button>
-                                            <button type="submit" name="action" value="rescheduled" class="btn btn-warning btn-sm">
+                                            <button type="submit" name="action" value="rescheduled" class="btn btn-warning btn-sm" id="update-status">
                                                 <i class="fa-solid fa-calendar"></i>
                                             </button>
                                         </form>
@@ -90,7 +89,6 @@
                 </div>
             </div>
         </div>
-        {{-- @endif --}}
     </div>
 @endsection
 
@@ -120,6 +118,23 @@
                     el.indeterminate = true;
                 }
             }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('#update-status').forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    let form = this.closest('#update-status-form');
+
+                    let confirmed = window.confirm('Are you sure?');
+
+                    if (confirmed) {
+                        form.submit();
+                    } else {
+                        return false;
+                    }
+                });
+            });
         });
     </script>
 @endpush

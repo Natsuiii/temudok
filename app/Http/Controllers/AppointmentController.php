@@ -6,6 +6,7 @@ use App\Models\Appointment;
 use App\Models\UnavailableTime;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
 {
@@ -14,7 +15,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::all();
+        $appointments = Appointment::where('doctor_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
         return view('appointment.index', compact('appointments'));
     }
 
@@ -74,20 +75,6 @@ class AppointmentController extends Controller
         $appointment->save();
 
         return redirect()->route('appointment.index')->with('success', 'Appointment updated successfully.');
-
-        // if ($request->input('action') == 'accept') {
-        //     // $appointment->status_id = null ;
-        // }
-        // elseif ($request->input('action') == 'cencel') {
-
-        // }
-        // elseif ($request->input('action') == 'reschedule') {
-
-        // }
-
-        // $appointment->save();
-
-        // return redirect()->route('appointment.index')->with('success', 'Appointment updated successfully.');
     }
 
     /**

@@ -96,6 +96,11 @@
                     <li class="sidebar-item {{ Route::is('article.index') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('article.index') }}">List</a></li>
                 </ul>
             </li>
+            <li class="sidebar-item {{ Route::is('appointment.index') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('appointment.index') }}">
+                    <i class="fa-solid fa-calendar-check"></i> <span class="align-middle">Your Appointment</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
