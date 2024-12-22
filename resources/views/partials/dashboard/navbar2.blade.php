@@ -1,3 +1,4 @@
+{{-- navbar2.blade.php --}}
 <nav class="navbar navbar-expand navbar-light navbar-bg">
     <a class="sidebar-toggle js-sidebar-toggle">
         <i class="hamburger align-self-center"></i>
@@ -5,7 +6,7 @@
 
     <form class="d-none d-sm-inline-block">
         <div class="input-group input-group-navbar">
-            <input type="text" class="form-control" placeholder="Search…" aria-label="Search">
+            <input type="text" class="form-control" placeholder=@lang('message.search') aria-label="Search">
             <button class="btn" type="button">
                 <i class="align-middle" data-feather="search"></i>
             </button>
@@ -80,15 +81,19 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-flag dropdown-toggle" href="#" id="languageDropdown" data-bs-toggle="dropdown">
-                    <img src="{{ asset('img/dashboard/flags/us.png') }}" alt="English">
-                </a>
+                <a class="nav-flag dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                    @if(session('locale') == 'id')
+                        <img src="{{ asset('img/dashboard/flags/id.png') }}" alt="Indonesia" width="20">
+                    @else
+                        <img src="{{ asset('img/dashboard/flags/us.png') }}" alt="English" width="20">
+                    @endif
+                  </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{ route('switch.language', ['lang' => 'en']) }}">
                         <img src="{{ asset('img/dashboard/flags/us.png') }}" alt="English" width="20" class="align-middle me-1">
                         <span class="align-middle">English</span>
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{ route('switch.language', ['lang' => 'id']) }}">
                         <img src="{{ asset('img/dashboard/flags/id.png') }}" alt="Indonesia" width="20" class="align-middle me-1">
                         <span class="align-middle">Indonesia</span>
                     </a>
@@ -106,16 +111,15 @@
                     <img src="{{ asset('img/dashboard/default-admin.jpeg') }}" class="avatar img-fluid rounded" alt="Jassa">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
-                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
+                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> @lang('message.ds_profile')</a>
+                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> @lang('message.ds_analytics')</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="pages-settings.html"><i class="align-middle me-1" data-feather="settings"></i> Settings &
-                        Privacy</a>
-                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+                    <a class="dropdown-item" href="pages-settings.html"><i class="align-middle me-1" data-feather="settings"></i> @lang('message.ds_setting')</a>
+                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> @lang('message.ds_help')</a>
                     <div class="dropdown-divider"></div>
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
-                        <button type="submit" class="dropdown-item dropdown-footer">Logout</button>
+                        <button type="submit" class="dropdown-item dropdown-footer">@lang('message.ds_logout')</button>
                     </form>
                 </div>
             </li>

@@ -8,6 +8,7 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UnavailableTimeController;
+use App\Http\Controllers\LocalController;
 use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register', [LoginController::class, 'store'])->name('register.store');
+Route::get('/switch-language/{lang}', [LocalController::class, 'switchLanguage'])->name('switch.language');
 
 Route::middleware('auth')->group(function () {
 
@@ -67,5 +69,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/bulk-destroy/category', [CategoryController::class, 'bulkDestroy'])->name('category.bulkDestroy');
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+    
+
 
 });

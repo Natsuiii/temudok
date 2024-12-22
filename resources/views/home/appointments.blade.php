@@ -5,19 +5,19 @@
     <div class="row">
         <!-- Daftar Spesialis -->
         <div style="gap: 10px; padding: 10px; background-color: #f8f9fa; border-radius: 8px;" class="d-flex overflow-x-auto mb-3">
-            <button class="btn btn-outline-primary" id="internist" onclick="filterDoctors('internist')" style="cursor: pointer;">Dokter Spesialis Penyakit Dalam</button>
-            <button class="btn btn-outline-primary" id="skin" onclick="filterDoctors('skin')" style="cursor: pointer;">Dokter Spesialis Kulit</button>
-            <button class="btn btn-outline-primary" id="ent" onclick="filterDoctors('ent')" style="cursor: pointer;">Dokter Spesialis THT</button>
-            <button class="btn btn-outline-primary" id="nutrition" onclick="filterDoctors('nutrition')" style="cursor: pointer;">Dokter Spesialis Gizi</button>
-            <button class="btn btn-outline-primary" id="obgyn" onclick="filterDoctors('obgyn')" style="cursor: pointer;">Dokter Spesialis Kandungan</button>
-            <button class="btn btn-outline-primary" id="dentist" onclick="filterDoctors('dentist')" style="cursor: pointer;">Dokter Gigi</button>
+            <button class="btn btn-outline-primary" id="internist" onclick="filterDoctors('internist')" style="cursor: pointer;">@lang('message.dspd')</button>
+            <button class="btn btn-outline-primary" id="skin" onclick="filterDoctors('skin')" style="cursor: pointer;">@lang('message.dsk')</button>
+            <button class="btn btn-outline-primary" id="ent" onclick="filterDoctors('ent')" style="cursor: pointer;">@lang('message.dst')</button>
+            <button class="btn btn-outline-primary" id="nutrition" onclick="filterDoctors('nutrition')" style="cursor: pointer;">@lang('message.dsg')</button>
+            <button class="btn btn-outline-primary" id="obgyn" onclick="filterDoctors('obgyn')" style="cursor: pointer;">@lang('message.dskn')</button>
+            <button class="btn btn-outline-primary" id="dentist" onclick="filterDoctors('dentist')" style="cursor: pointer;">@lang('message.dg')</button>
         </div>
         
         <!-- Daftar Dokter -->
         <div class="col-md-12">
-            <h5>Daftar Dokter</h5>
+            <h5>@lang('message.doctor_list')</h5>
             <div id="doctor-list" class="d-flex flex-wrap mb-5" style="gap: 20px;"   >
-                <p>Pilih spesialisasi di atas untuk melihat daftar dokter.</p>
+                <p>@lang('message.select_specialization')</p>
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="doctorModalLabel">Detail Dokter</h5>
+                <h5 class="modal-title" id="doctorModalLabel">@lang('message.doctor_details')</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -37,13 +37,13 @@
                 </div>
                 <h5 id="doctorName" class="text-center"></h5>
                 <p id="doctorSpecialization" class="text-muted text-center"></p>
-                <p><strong>Pengalaman:</strong> <span id="doctorExperience"></span></p>
-                <p><strong>Rating:</strong> <span id="doctorRating"></span></p>
-                <p><strong>Harga Konsultasi:</strong> <span id="doctorPrice"></span>,- / 30 menit</p>
+                <p><strong>@lang('message.experience')</strong> <span id="doctorExperience"></span></p>
+                <p><strong>@lang('message.rating')</strong> <span id="doctorRating"></span></p>
+                <p><strong>@lang('message.consultation_fee')</strong> <span id="doctorPrice"></span>,- / 30 @lang('message.minutes')</p>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="bookButton" data-bs-toggle="modal" data-bs-target="#bookingModal">Book</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            <button type="button" class="btn btn-primary" id="bookButton" data-bs-toggle="modal" data-bs-target="#bookingModal">@lang('message.book')</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@lang('message.close')</button>
             </div>
         </div>
     </div>
@@ -54,39 +54,39 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="bookingModalLabel">Formulir Pemesanan</h5>
+                <h5 class="modal-title" id="bookingModalLabel">@lang('message.booking_form')</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="bookingForm">
                     <div class="mb-3">
-                        <label for="userName" class="form-label">Nama</label>
+                        <label for="userName" class="form-label">@lang('message.name')</label>
                         <input type="text" class="form-control" id="userName" name="userName" required>
                     </div>
                     <div class="mb-3">
-                        <label for="userAge" class="form-label">Usia</label>
+                        <label for="userAge" class="form-label">@lang('message.age')</label>
                         <input type="number" class="form-control" id="userAge" name="userAge" required>
                     </div>
                     <div class="mb-3">
-                        <label for="description" class="form-label">Deskripsi</label>
+                        <label for="description" class="form-label">@lang('message.description')</label>
                         <textarea class="form-control" id="description" name="description" rows="4" placeholder="Deskripsikan keluhan yang Anda alami..."></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="consultationDuration" class="form-label">Durasi Konsultasi</label>
+                        <label for="consultationDuration" class="form-label">@lang('message.consultation_duration')</label>
                         <div id="durationButtons" class="d-flex gap-2">
-                            <button type="button" class="btn btn-outline-primary duration-button" data-duration="30">30 Menit</button>
-                            <button type="button" class="btn btn-outline-primary duration-button" data-duration="45">45 Menit</button>
-                            <button type="button" class="btn btn-outline-primary duration-button" data-duration="60">60 Menit</button>
+                            <button type="button" class="btn btn-outline-primary duration-button" data-duration="30">30 @lang('message.minutes')</button>
+                            <button type="button" class="btn btn-outline-primary duration-button" data-duration="45">45 @lang('message.minutes')</button>
+                            <button type="button" class="btn btn-outline-primary duration-button" data-duration="60">60 @lang('message.minutes')</button>
                         </div>
                         <input type="hidden" id="consultationDuration" name="consultationDuration" required>
                     </div>
                     <div class="mb-3">
-                        <label for="availabilityDate" class="form-label">Tanggal Tersedia</label>
+                        <label for="availabilityDate" class="form-label">@lang('message.available_date')</label>
                         <input type="date" class="form-control" id="availabilityDate" name="availabilityDate" required>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Bayar</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">@lang('message.pay')</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@lang('message.cancel')</button>
                     </div>
                 </form>
             </div>
