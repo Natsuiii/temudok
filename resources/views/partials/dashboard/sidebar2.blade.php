@@ -91,7 +91,7 @@
                     <i class="fa-regular fa-newspaper align-middle"></i> <span class="align-middle">@lang('message.sd_article')</span>
                 </a>
                 <ul id="article" class="sidebar-dropdown list-unstyled collapse {{ Route::is('article.*') ? 'show' : '' }}" data-bs-parent="#sidebar">
-                    <li class="sidebar-item {{ Route::is('article.create') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('article.create') }}">@lang('message.create')></li>
+                    <li class="sidebar-item {{ Route::is('article.create') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('article.create') }}">@lang('message.create')</a></li>
                     <li class="sidebar-item {{ Route::is('article.index') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('article.index') }}">@lang('message.list')</a></li>
                 </ul>
             </li>

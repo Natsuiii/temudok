@@ -23,10 +23,10 @@
                   <a class="nav-link text-white fw-semibold" href="{{ route('home') }}">@lang('message.about')</a>
               @endif
               <li class="nav-item">
-                <a class="nav-link text-white fw-semibold" href="{{ route('login') }}">@lang('message.appointment')</a>
+                <a class="nav-link text-white fw-semibold" href="{{ route('appointments') }}">@lang('message.appointment')</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white fw-semibold" href="{{ route('login') }}">@lang('message.history')</a>
+                <a class="nav-link text-white fw-semibold" href="{{ route('history') }}">@lang('message.history')</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white fw-semibold {{ Route::is('articles', 'articles.detail') ? 'active' : '' }}" href="{{ route('articles') }}">@lang('message.articles')</a>

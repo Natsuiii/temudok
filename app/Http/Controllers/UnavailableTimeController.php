@@ -18,9 +18,9 @@ class UnavailableTimeController extends Controller
     {
         $users = UnavailableTime::where('doctor_id', Auth::user()->id)->with('doctor')->orderBy('created_at', 'desc')->get();
 
-        foreach ($users as $time) {
-            $time->unavailable_time = Carbon::parse($time->date_time)->format('d F Y');
-        }
+        // foreach ($users as $time) {
+        //     $time->unavailable_time = Carbon::parse($time->date_time)->format('d F Y');
+        // }
 
         return view('doctorSchedule.index', [
             'users' => $users

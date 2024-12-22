@@ -24,7 +24,8 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        //
+        $doctors = User::where('role_id', 2)->get();
+        return view('home.appointments', compact('doctors'));
     }
 
     /**
@@ -32,7 +33,12 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'userName' => 'required',
+            'userAge' => 'required',
+            'description' => 'required',
+            'consultationDuration' => 'required',
+        ]);
     }
 
     /**
@@ -56,15 +62,14 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, Appointment $appointment)
     {
-
         switch ($request->input('action')) {
-            case 'accept':
+            case 'accepted':
                 $appointment->status_id = 1; // Accept
                 break;
-            case 'cancel':
+            case 'rejected':
                 $appointment->status_id = 2; // Reject
                 break;
-            case 'reschedule':
+            case 'rescheduled':
                 $appointment->status_id = 3; // Reschedule
                 break;
             default:

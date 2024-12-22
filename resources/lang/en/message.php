@@ -104,8 +104,8 @@
         'doctor_list' => 'Doctor List',
         'select_specialization' => 'Select a specialization above to view the list of doctors.',
         'doctor_details' => 'Doctor Details',
-        'experience' => 'Experience:',
-        'rating' => 'Rating:',
+        'experience' => 'Specialization:',
+        'rating' => 'Experience:',
         'consultation_fee' => 'Consultation Fee:',
         'minutes' => 'minutes',
         'close' => 'Close',
@@ -117,5 +117,8 @@
         'available_date' => 'Available Date',
         'pay' => 'Pay',
         'book' => 'Book',
+        'show_detail' => 'Show Detail',
+        'listHome' => 'Doctor List',
+        'reason' => 'Describe the illness you are experiencing',
     ];
 ?>

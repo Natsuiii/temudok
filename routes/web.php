@@ -15,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/appointments', function(){
-    return view('home.appointments');
-})->name('appointment');
+Route::get('/appointments', [AppointmentController::class, 'create'])->name('appointments');
+
 Route::get('/history', function(){
     return view('home.history');
 })->name('history');

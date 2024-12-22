@@ -68,6 +68,6 @@ class User extends Authenticatable
     }
 
     public function category(){
-        return $this->belongsTo(Category::class, 'specilization_id', 'id');
+        return $this->belongsTo(Category::class, 'specialization_id', 'id');
     }
 }

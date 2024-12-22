@@ -100,8 +100,8 @@
         'doctor_list' => 'Daftar Dokter',
         'select_specialization' => 'Pilih spesialisasi di atas untuk melihat daftar dokter.',
         'doctor_details' => 'Detail Dokter',
-        'experience' => 'Pengalaman:',
-        'rating' => 'Rating:',
+        'experience' => 'Specialisasi:',
+        'rating' => 'Pengalaman:',
         'consultation_fee' => 'Harga Konsultasi:',
         'minutes' => 'menit',
         'close' => 'Tutup',
@@ -113,8 +113,9 @@
         'available_date' => 'Tanggal Tersedia',
         'pay' => 'Bayar',
         'book' => 'Pesan',
-
-
+        'show_detail' => 'Tampilkan Detail',
+        'listHome' => 'Daftar Dokter',
+        'reason' => 'Deskripsikan keluhan yang Anda alami...'
 
     ];
 ?>

@@ -6,7 +6,7 @@ use App\Models\AppointmentStatus;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CategorySeeder extends Seeder
+class AppointmentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
