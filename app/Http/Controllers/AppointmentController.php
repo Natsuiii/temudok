@@ -14,7 +14,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        return view('appointment.index');
+        $appointments = Appointment::all();
+        return view('appointment.index', compact('appointments'));
     }
 
     /**
@@ -22,8 +23,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        $doctors = User::where('role_id', 2)->get();
-        return view('appointment.create', compact('doctors'));
+        // 
     }
 
     /**
@@ -55,7 +55,19 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, Appointment $appointment)
     {
-        //
+        if ($request->input('action') == 'accept') {
+            // $appointment->status_id = null ;
+        }
+        elseif ($request->input('action') == 'cencel') {
+
+        }
+        elseif ($request->input('action') == 'reschedule') {
+
+        }
+
+        $appointment->save();
+
+        return redirect()->route('appointment.index')->with('success', 'Appointment updated successfully.');
     }
 
     /**

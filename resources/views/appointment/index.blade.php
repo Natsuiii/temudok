@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.dashboard2')
 
 @push('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.7/css/dataTables.bootstrap5.css">
@@ -6,7 +6,7 @@
 
 @section('content')
     <!-- Content Header (Page header) -->
-    {{-- <div class="content-header">
+    <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
@@ -28,7 +28,7 @@
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-    </div> --}}
+    </div>
     <!-- /.content-header -->
 
     <div class="container-fluid px-4">
@@ -48,7 +48,7 @@
                     <table id="appointment-table" class="table table-striped">
                         <thead>
                             <tr>
-                                {{-- <th style="width: 5%"><input type="checkbox" id="select-all"></th> --}}
+                                <th style="width: 5%"><input type="checkbox" id="select-all"></th>
                                 <th>Name</th>
                                 <th>Age</th>
                                 <th>Description</th>
@@ -59,7 +59,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                {{-- <td><input type="checkbox" class="row-select" data-id=""></td> --}}
+                                <td><input type="checkbox" class="row-select" data-id=""></td>
                                 <td>Awokwok</td>
                                 <td>20</td>
                                 <td>Test</td>
@@ -70,23 +70,24 @@
                                     <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-xmark"></i></a>
                                     <a href="" class="btn btn-warning btn-sm"><i
                                             class="fa-solid fa-calendar"></i></a>
-                                    <a href="" class="btn btn-info btn-sm"><i class="fa-solid fa-bell"></i></a>
                                     <a href="" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
                                 </td>
                             </tr>
                             <tr>
-                                {{-- <td><input type="checkbox" class="row-select" data-id=""></td> --}}
+                                <td><input type="checkbox" class="row-select" data-id=""></td>
                                 <td>Awokwok</td>
                                 <td>20</td>
                                 <td>Test</td>
                                 <td>2022-12-12</td>
                                 <td><span class="badge bg-success">Pending</span></td>
                                 <td>
-                                    <a href="" class="btn btn-success btn-sm"><i class="fa-solid fa-check"></i></a>
-                                    <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-xmark"></i></a>
-                                    <a href="" class="btn btn-warning btn-sm"><i
-                                            class="fa-solid fa-calendar"></i></a>
-                                    <a href="" class="btn btn-info btn-sm"><i class="fa-solid fa-bell"></i></a>
+                                    {{-- {{ route('appointment.update', $appointment->id) }} --}}
+                                    <form action="" method="POST" style="display:inline;" id="single-delete-form">
+                                        @csrf
+                                        <button href="" class="btn btn-success btn-sm" value="accept"><i class="fa-solid fa-check"></i></button>
+                                        <button href="" class="btn btn-danger btn-sm" value="cancel"><i class="fa-solid fa-xmark"></i></button>
+                                        <button href="" class="btn btn-warning btn-sm" value="reschedule"><i class="fa-solid fa-calendar"></i></button>
+                                    </form>
                                     <a href="" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
                                 </td>
                             </tr>
@@ -107,15 +108,7 @@
     <script>
         $("#appointment-table").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,
-            // columnDefs: [{
-            //         orderable: false,
-            //         targets: 6
-            //     }, // Menonaktifkan sorting untuk kolom action
-            //     {
-            //         orderable: false,
-            //         targets: 0
-            //     }, // Menonaktifkan sorting untuk kolom checkbox
-            // ]
+            
         });
 
         $('#select-all').on('click', function() {
