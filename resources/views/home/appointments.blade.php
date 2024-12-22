@@ -23,6 +23,77 @@
     </div>
 </div>
 
+<!-- First Modal -->
+<div class="modal fade" id="doctorModal" tabindex="-1" aria-labelledby="doctorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="doctorModalLabel">Detail Dokter</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mb-3">
+                    <img id="doctorImage" src="{{ asset('img/home/journey.png') }}" class="rounded-circle" style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #007bff;">
+                </div>
+                <h5 id="doctorName" class="text-center"></h5>
+                <p id="doctorSpecialization" class="text-muted text-center"></p>
+                <p><strong>Pengalaman:</strong> <span id="doctorExperience"></span></p>
+                <p><strong>Rating:</strong> <span id="doctorRating"></span></p>
+                <p><strong>Harga Konsultasi:</strong> <span id="doctorPrice"></span>,- / 30 menit</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="bookButton" data-bs-toggle="modal" data-bs-target="#bookingModal">Book</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Second Modal -->
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookingModalLabel">Formulir Pemesanan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm">
+                    <div class="mb-3">
+                        <label for="userName" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="userName" name="userName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="userAge" class="form-label">Usia</label>
+                        <input type="number" class="form-control" id="userAge" name="userAge" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Deskripsi</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Deskripsikan keluhan yang Anda alami..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="consultationDuration" class="form-label">Durasi Konsultasi</label>
+                        <div id="durationButtons" class="d-flex gap-2">
+                            <button type="button" class="btn btn-outline-primary duration-button" data-duration="30">30 Menit</button>
+                            <button type="button" class="btn btn-outline-primary duration-button" data-duration="45">45 Menit</button>
+                            <button type="button" class="btn btn-outline-primary duration-button" data-duration="60">60 Menit</button>
+                        </div>
+                        <input type="hidden" id="consultationDuration" name="consultationDuration" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="availabilityDate" class="form-label">Tanggal Tersedia</label>
+                        <input type="date" class="form-control" id="availabilityDate" name="availabilityDate" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Bayar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     const doctors = {
         internist: [
@@ -79,24 +150,6 @@
 
         if (doctors[specialization]) {
             doctors[specialization].forEach((doc, index) => {
-                // const card = 
-                // `
-                //     <div style="flex: 0 0 30%; max-width: 30%; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                //         <div style="display: flex; align-items: center; padding: 15px; gap: 15px;">
-                //             <img src="{{ asset('img/home/journey.png') }}" alt="Foto Dokter" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%; border: 2px solid #007bff;">
-                //             <div>
-                //                 <h5 style="margin: 0; font-size: 16px; font-weight: bold;">${doc.name}</h5>
-                //                 <p style="margin: 0; font-size: 14px; color: #666;">${doc.specialization}</p>
-                //             </div>
-                //         </div>
-                //         <div style="padding: 10px 15px; border-top: 1px solid #f1f1f1;">
-                //             <p style="margin: 0; font-size: 14px;">Pengalaman: <strong>${doc.experience}</strong></p>
-                //             <p style="margin: 0; font-size: 14px;">Rating: <strong>${doc.rating}</strong></p>
-                //             <p style="margin: 0; font-size: 14px; color: #007bff; font-weight: bold;">${doc.price}</p>
-                //             <button class="btn btn-primary" style="margin-top: 10px; width: 100%; font-size: 14px; font-weight: bold;">Book</button>
-                //         </div>
-                //     </div>
-                // `;
                 const card = 
                 `
                         <div class="card" style="width: 250px;">
@@ -111,10 +164,7 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <p style="margin: 0; font-size: 14px;">Pengalaman: <strong>${doc.experience}</strong></p>
-                                    <p style="margin: 0; font-size: 14px;">Rating: <strong>${doc.rating}</strong></p>
-                                    <p style="margin: 0; font-size: 14px; color: #007bff; font-weight: bold;">${doc.price}</p>
-                                    <button class="btn btn-primary" style="margin-top: 10px; width: 100%; font-size: 14px; font-weight: bold;">Book</button>
+                                    <button class="btn btn-primary" onclick="showDoctorDetails(${index}, '${specialization}')" style="margin-top: 10px; width: 100%; font-size: 14px; font-weight: bold;">Detail</button>
                                 </div>
                             </div>
                         </div>
@@ -126,5 +176,34 @@
             doctorList.innerHTML = "<p>Tidak ada dokter tersedia untuk spesialisasi ini.</p>";
         }
     }
+
+    function showDoctorDetails(index, specialization) {
+        const doctor = doctors[specialization][index];
+
+        document.getElementById("doctorName").innerText = doctor.name;
+        document.getElementById("doctorSpecialization").innerText = doctor.specialization;
+        document.getElementById("doctorExperience").innerText = doctor.experience;
+        document.getElementById("doctorRating").innerText = doctor.rating;
+        document.getElementById("doctorPrice").innerText = doctor.price;
+
+        const modal = new bootstrap.Modal(document.getElementById('doctorModal'));
+        modal.show();
+    }
+
+    document.querySelectorAll('.duration-button').forEach(button => {
+        button.addEventListener('click', function() {
+            document.querySelectorAll('.duration-button').forEach(btn => {
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-outline-primary');
+                btn.style.color = '';
+            });
+
+            this.classList.remove('btn-outline-primary');
+            this.classList.add('btn-primary');
+            this.style.color = 'white';
+
+            document.getElementById('consultationDuration').value = this.getAttribute('data-duration');
+        });
+    });
 </script>
 @endsection
