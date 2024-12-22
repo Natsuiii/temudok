@@ -39,8 +39,11 @@
         'article_headbar' => 'Read the Best Articles from the Best Doctors',
         'category' => 'All Category',
 
+        // Tutorial
+
         'next' => 'NEXT',
         'prev' => 'BACK',
+
 
         'tutorial_headbar' => 'Tutorial on Using TemuDok',
         'tutor1' => '1.  Login to Access Further',
@@ -60,6 +63,25 @@
 
         'tutor6' => '6.  Done',
         'tutor6_desc' => 'The process is complete! You will receive a Zoom link to consult online with the doctor you have chosen. Enjoy a comfortable and safe consultation!',
+
+        //Search
+        'search' => 'Search...',
+
+        // Dashboard profile
+        'ds_profile' => 'Profile',
+        'ds_analytics' => 'Analytics',
+        'ds_setting' => 'Settings & Privacy',
+        'ds_help' => 'Help Center',
+        'ds_logout' => 'Logout',
+
+        // Dashboard
+        'dashboard' => 'Dashboard',
+        'scheduled' => 'Scheduled',
+        'done' => 'Done',
+        'pending' => 'Pending',
+        'cancel' => 'Canceled',
+        'more' => 'More Info',
+
         
     ];
 ?>

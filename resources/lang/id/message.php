@@ -63,6 +63,22 @@
         'tutor6' => '6.  Selesai',
         'tutor6_desc' => 'Proses selesai! Anda akan memperoleh tautan Zoom untuk berkonsultasi secara daring dengan dokter yang telah Anda pilih. Selamat berkonsultasi dengan nyaman dan aman!',
 
+        'search' => 'Cari...',
+
+        'ds_profile' => 'Profil',
+        'ds_analytics' => 'Analitik',
+        'ds_setting' => 'Pengaturan & Privasi',
+        'ds_help' => 'Pusat Bantuan',
+        'ds_logout' => 'Keluar',
+
+        // Dashboard
+        'dashboard' => 'Dasbor',
+        'scheduled' => 'Jadwal',
+        'done' => 'Selesai',
+        'pending' => 'Tertunda',
+        'cancel' => 'Dibatalkan',
+        'more' => 'Info Lanjut',
+
 
     ];
 ?>

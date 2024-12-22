@@ -26,19 +26,18 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-start">
                         <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1"
-                                data-feather="user"></i> Profile</a>
+                                data-feather="user"></i> @lang('message.dashboard')</a>
                         <a class="dropdown-item" href="#"><i class="align-middle me-1"
-                                data-feather="pie-chart"></i> Analytics</a>
+                                data-feather="pie-chart"></i> @lang('message.ds_analytics')</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="pages-settings.html"><i class="align-middle me-1"
-                                data-feather="settings"></i> Settings &
-                            Privacy</a>
+                                data-feather="settings"></i> @lang('message.ds_setting')</a>
                         <a class="dropdown-item" href="#"><i class="align-middle me-1"
-                                data-feather="help-circle"></i> Help Center</a>
+                                data-feather="help-circle"></i> @lang('message.ds_help')</a>
                         <div class="dropdown-divider"></div>
                         <form action="{{ route('logout') }}" method="post">
                             @csrf
-                            <button type="submit" class="dropdown-item dropdown-footer">Logout</button>
+                            <button type="submit" class="dropdown-item dropdown-footer">@lang('message.ds_logout')</button>
                         </form>
                     </div>
 
@@ -53,7 +52,7 @@
             </li>
             <li class="sidebar-item {{ Route::is('dashboard') ? 'active' : '' }}">
                 <a class="sidebar-link" href="{{ route('dashboard') }}">
-                    <i class="fa-solid fa-sliders align-middle"></i> <span class="align-middle">Dashboard</span>
+                    <i class="fa-solid fa-sliders align-middle"></i> <span class="align-middle">@lang('message.dashboard')</span>
                 </a>
             </li>
             <li class="sidebar-item {{ Route::is('user.*') ? 'active' : '' }}">
