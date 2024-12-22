@@ -11,33 +11,33 @@
             <!-- Features -->
             {{-- Untuk features ntar berarti link-innya ke page yang sesuai --}}
             <div class="col-md-3 mb-3">
-                <h6 class="fw-bold text-uppercase">Features</h6>
+                <h6 class="fw-bold text-uppercase">@lang('message.features')</h6>
                 <ul class="list-unstyled">
-                    <li><a class="text-white text-decoration-none" href="#about-us">About Us</a></li>
-                    <li><a class="text-white text-decoration-none" href="{{ route('login') }}">Appointment</a></li>
-                    <li><a class="text-white text-decoration-none" href="{{ route('articles') }}">Articles</a></li>
-                    <li><a class="text-white text-decoration-none" href="{{ route('tutorial') }}">Tutorial</a></li>
+                    <li><a class="text-white text-decoration-none" href="#about-us">@lang('message.about')</a></li>
+                    <li><a class="text-white text-decoration-none" href="{{ route('login') }}">@lang('message.appointment')</a></li>
+                    <li><a class="text-white text-decoration-none" href="{{ route('articles') }}">@lang('message.articles')</a></li>
+                    <li><a class="text-white text-decoration-none" href="{{ route('tutorial') }}">@lang('message.tutorial')</a></li>
                 </ul>
             </div>
 
             <!-- Company -->
             {{-- Ini gabisa di pencet --}}
             <div class="col-md-3 mb-3">
-                <h6 class="fw-bold text-uppercase">Company</h6>
+                <h6 class="fw-bold text-uppercase">@lang('message.company')</h6>
                 <ul class="list-unstyled">
                     <li><a class="text-white text-decoration-none" href="#">Blog</a></li>
-                    <li><a class="text-white text-decoration-none" href="#">Partnerships</a></li>
-                    <li><a class="text-white text-decoration-none" href="#">Careers</a></li>
-                    <li><a class="text-white text-decoration-none" href="#">Terms & Conditions</a></li>
-                    <li><a class="text-white text-decoration-none" href="#">Privacy Policy</a></li>
+                    <li><a class="text-white text-decoration-none" href="#">@lang('message.partnerships')</a></li>
+                    <li><a class="text-white text-decoration-none" href="#">@lang('message.careers')</a></li>
+                    <li><a class="text-white text-decoration-none" href="#">@lang('message.termscondition')</a></li>
+                    <li><a class="text-white text-decoration-none" href="#">@lang('message.privacy')</a></li>
                 </ul>
             </div>
 
             <!-- Address -->
             <div class="col-md-3 mb-3">
-                <h6 class="fw-bold text-uppercase">Address</h6>
-                <p>West Jakarta, Indonesia 11530</p>
-                <h6 class="fw-bold text-uppercase mt-4">Get in Touch</h6>
+                <h6 class="fw-bold text-uppercase">@lang('message.address')</h6>
+                <p>@lang('message.jakarta'), Indonesia 11530</p>
+                <h6 class="fw-bold text-uppercase mt-4">@lang('message.getintouch')</h6>
                 <div class="d-flex">
                     <a href="#" class="text-white me-3">
                         <i class="fab fa-facebook-f"></i>

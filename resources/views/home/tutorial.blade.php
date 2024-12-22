@@ -19,7 +19,7 @@
 
     <div class="container py-5">
         <div class="d-flex justify-content-center">
-            <h3 class="pb-3">Tutorial Menggunakan TemuDok</h3>
+            <h3 class="pb-3"></h3>
         </div>
 
         <!-- Carousel -->
@@ -44,8 +44,8 @@
                             <h5 class="card-title">1.  Login untuk Mengakses Lebih Lanjut</h5>
                             <p class="card-text">Anda perlu login untuk bisa mengakses fitur-fitur unggulan kami. Jika Anda belum memiliki akun, Anda dapat mendaftar terlebih dahulu agar bisa login ke TemuDok.</p>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary w-8">BACK</button>
-                                <button class="btn btn-primary w-8">NEXT</button>
+                                <button class="btn btn-outline-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="prev">@lang('message.prev')</button>
+                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">NEXT</button>
                             </div>
                         </div>
                     </div>
@@ -59,8 +59,8 @@
                             <h5 class="card-title">2.  Pilih Menu Appointment</h5>
                             <p class="card-text">Setelah berhasil login, Anda akan masuk ke Dashboard. Selanjutnya, Anda dapat memilih menu appointment untuk melakukan booking konsultasi.</p>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary w-8">BACK</button>
-                                <button class="btn btn-primary w-8">NEXT</button>
+                                <button class="btn btn-outline-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="prev">@lang('message.prev')</button>
+                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">@lang('message.next')</button>
                             </div>
                         </div>
                     </div>
@@ -74,10 +74,10 @@
                             <h5 class="card-title">3.  Pilih Dokter yang Diinginkan</h5>
                             <p class="card-text">Di menu appointment, Anda dapat memilih dokter yang tersedia. Anda bebas memilih dokter yang mungkin Anda sudah kenal atau mencari pengalaman konsultasi baru dengan dokter kami.</p>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary w-8">BACK</button>
-                                <button class="btn btn-primary w-8">NEXT</button>
+                                <button class="btn btn-outline-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="prev">@lang('message.prev')</button>
+                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next"></button>
                             </div>
-                        </div>
+                        </div>                         
                     </div>
                 </div>
 
@@ -89,8 +89,8 @@
                             <h5 class="card-title">4.  Booking Dokter yang Telah Dipilih</h5>
                             <p class="card-text">Anda dapat memilih jadwal konsultasi dengan dokter yang telah Anda pilih. TemuDok juga dapat menyesuaikan ketersediaan jadwal dokter sehingga Anda hanya dapat memilih jadwal yang memang tersedia untuk dokter tersebut.</p>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary w-8">BACK</button>
-                                <button class="btn btn-primary w-8">NEXT</button>
+                                <button class="btn btn-outline-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="prev">@lang('message.prev')</button>
+                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">NEXT</button>
                             </div>
                         </div>
                     </div>
@@ -104,8 +104,8 @@
                             <h5 class="card-title">5.  Lakukan Pembayaran</h5>
                             <p class="card-text">Setelah booking, Anda dapat melanjutkan proses dengan melakukan pembayaran. Kami mendukung pembayaran dengan berbagai metode sehingga Anda hanya perlu memilih metode pembayaran yang sesuai dengan Anda.</p>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary w-8">BACK</button>
-                                <button class="btn btn-primary w-8">NEXT</button>
+                                <button class="btn btn-outline-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="prev">@lang('message.prev')</button>
+                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">NEXT</button>
                             </div>
                         </div>
                     </div>
@@ -119,8 +119,8 @@
                             <h5 class="card-title">6.  Selesai</h5>
                             <p class="card-text">Proses selesai! Anda akan memperoleh tautan Zoom untuk berkonsultasi secara daring dengan dokter yang telah Anda pilih. Selamat berkonsultasi dengan nyaman dan aman!</p>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary w-8">BACK</button>
-                                <button class="btn btn-primary w-8">NEXT</button>
+                                <button class="btn btn-outline-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="prev">@lang('message.prev')</button>
+                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">NEXT</button>
                             </div>
                         </div>
                     </div>
@@ -139,5 +139,4 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 @endsection

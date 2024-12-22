@@ -3,12 +3,12 @@
 @section('content')
     <div class="container">
         <!-- Header Section -->
-        <h3 class="fw-bold py-4">Baca Artikel Terbaik dari Dokter Terbaik</h3>
+        <h3 class="fw-bold py-4">@lang('message.article_headbar')</h3>
         <!-- Tabs -->
         <ul class="nav nav-pills mb-3 d-flex gap-3 overflow-x-auto" id="category-tabs">
             <li class="nav-item">
                 <a class="nav-link active" href="{{ request()->fullUrlWithQuery(['category' => 'all']) }}"
-                    data-category="all">Semua Kategori</a>
+                    data-category="all">@lang('message.category')</a>
             </li>
             @foreach ($categories as $c)
                 <li class="nav-item">
@@ -45,8 +45,7 @@
         {{ $articles->links() }}
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-@endsection
+    @endsection
 
 @push('scripts')
     <script>
