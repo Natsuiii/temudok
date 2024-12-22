@@ -82,6 +82,40 @@
         'cancel' => 'Canceled',
         'more' => 'More Info',
 
-        
+        // Dashbor Siderbar
+        'admin' => 'Admin',
+        'user' => 'User',
+        'sd_category' => 'Category',
+        'doctor' => 'Doctor',
+        'manage' => 'Manage Schedule',
+        'sd_article' => 'Article',
+        'your-appointment' => 'Your Appointment',
+        'create' => 'Create',
+        'list' => 'List',
+
+        // Dokter 
+        'dspd' => "Internal Medicine Specialist",
+        'dsk' => "Dermatologist",
+        'dst' => "ENT Specialist",
+        'dsg' => "Nutrition Specialist",
+        'dskn' => "Obstetrician",
+        'dg' => "Dentist",
+
+        'doctor_list' => 'Doctor List',
+        'select_specialization' => 'Select a specialization above to view the list of doctors.',
+        'doctor_details' => 'Doctor Details',
+        'experience' => 'Experience:',
+        'rating' => 'Rating:',
+        'consultation_fee' => 'Consultation Fee:',
+        'minutes' => 'minutes',
+        'close' => 'Close',
+        'booking_form' => 'Booking Form',
+        'name' => 'Name',
+        'age' => 'Age',
+        'description' => 'Description',
+        'consultation_duration' => 'Consultation Duration',
+        'available_date' => 'Available Date',
+        'pay' => 'Pay',
+        'book' => 'Book',
     ];
 ?>

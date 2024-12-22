@@ -76,8 +76,44 @@
         'scheduled' => 'Jadwal',
         'done' => 'Selesai',
         'pending' => 'Tertunda',
-        'cancel' => 'Dibatalkan',
+        'cancel' => 'Batal',
         'more' => 'Info Lanjut',
+
+        'admin' => 'Admin',
+        'user' => 'Pengguna',
+        'sd_category' => 'Kategori',
+        'doctor' => 'Dokter',
+        'manage' => 'Kelola Jadwal',
+        'sd_article' => 'Artikel',
+        'your-appointment' => 'Janji Temu Anda',
+        'create' => 'Buat',
+        'list' => 'Daftar',
+
+        //Dokter Appointment
+        'dspd' => "Dokter Spesialis Penyakit dalam",
+        'dsk' =>"Dokter Spesialis Kulit",
+        'dst' => "Dokter Spesialis THT",
+        'dsg' => "Dokter Spesialis Gizi",
+        'dskn' => "Dokter Spesialis Kandungan",
+        'dg' => 'Dokter Gigi',
+
+        'doctor_list' => 'Daftar Dokter',
+        'select_specialization' => 'Pilih spesialisasi di atas untuk melihat daftar dokter.',
+        'doctor_details' => 'Detail Dokter',
+        'experience' => 'Pengalaman:',
+        'rating' => 'Rating:',
+        'consultation_fee' => 'Harga Konsultasi:',
+        'minutes' => 'menit',
+        'close' => 'Tutup',
+        'booking_form' => 'Formulir Pemesanan',
+        'name' => 'Nama',
+        'age' => 'Usia',
+        'description' => 'Deskripsi',
+        'consultation_duration' => 'Durasi Konsultasi',
+        'available_date' => 'Tanggal Tersedia',
+        'pay' => 'Bayar',
+        'book' => 'Pesan',
+
 
 
     ];
