@@ -9,9 +9,9 @@
     
     <!-- Content -->
     <div class="container position-relative" style="z-index: 2; color: #fff;">
-        <h1 class="fw-bold mb-3 display-4 m-0">Temukan Dokter, Temukan Solusi</h1>
+        <h1 class="fw-bold mb-3 display-4 m-0">@lang('message.hero_title')</h1>
         <p class="mb-4 lead m-auto" style="max-width: 750px;">
-            Temudok mempermudah Anda untuk menemukan dan memesan jadwal konsultasi dokter terbaik sesuai kebutuhan, kapan saja dan di mana saja.
+            @lang('message.hero_description')
         </p>
         
         <!-- Features Section -->
