@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #2196F3; margin-bottom: 0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
   <div class="container-fluid">
       <!-- Brand Logo -->
-      <a class="navbar-brand fw-bold text-white" href="#">
+      <a class="navbar-brand fw-bold text-white" href="{{ route('home') }}">
         {{-- Ini aku belum urus untuk size nya, jd sesuain aja ya fen --}}
-          <img src="" alt="Logo" class="rounded-circle me-2"> Temudok
+          <img src="{{ asset('img/home/temudok.png') }}" alt="Logo" class="rounded-circle me-3" style="width: 90px; height: 50px;">
       </a>
       <!-- Toggler Button -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,11 @@
               </li>
               <li class="nav-item dropdown d-flex align-items-center justify-content-center">
                 <a class="" href="#" data-bs-toggle="dropdown">
-                    <img src="{{ asset('img/dashboard/flags/us.png') }}" alt="English" width="20">
+                  @if(session('locale') == 'id')
+                      <img src="{{ asset('img/dashboard/flags/id.png') }}" alt="Indonesia" width="20">
+                  @else
+                      <img src="{{ asset('img/dashboard/flags/us.png') }}" alt="English" width="20">
+                  @endif
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
                     <a class="dropdown-item" href="{{ route('switch.language', ['lang' => 'en']) }}">

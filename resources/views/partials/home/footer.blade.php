@@ -4,7 +4,7 @@
             <!-- Logo and Title -->
             {{-- Nanti masukin logo ya fen --}}
             <div class="col-md-3 mb-3">
-                <img src="img/logo.png" alt="Temudok Logo" style="max-width: 100px;" class="mb-2">
+                <img src="{{ asset('img/home/temudok.png') }}" alt="Temudok Logo" class="rounded-circle me-3" style="width: 90px; height: 50px;">
                 <h6 class="fw-bold text-uppercase" style="padding-top: 50px">Temudok</h6>
             </div>
 

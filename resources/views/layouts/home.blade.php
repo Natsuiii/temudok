@@ -13,6 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     @stack('css')
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>

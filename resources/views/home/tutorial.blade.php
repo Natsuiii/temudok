@@ -19,7 +19,7 @@
 
     <div class="container py-5">
         <div class="d-flex justify-content-center">
-            <h3 class="pb-3"></h3>
+            <h3 class="pb-3">@lang('message.tutorial_headbar')</h3>
         </div>
 
         <!-- Carousel -->
@@ -41,11 +41,11 @@
                     <div class="card mx-auto" style="width: 60rem;">
                         <img src="{{ asset('icons/1.png') }}" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">1.  Login untuk Mengakses Lebih Lanjut</h5>
-                            <p class="card-text">Anda perlu login untuk bisa mengakses fitur-fitur unggulan kami. Jika Anda belum memiliki akun, Anda dapat mendaftar terlebih dahulu agar bisa login ke TemuDok.</p>
+                            <h5 class="card-title">@lang('message.tutor1')</h5>
+                            <p class="card-text">@lang('message.tutor1_desc')</p>
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-outline-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="prev">@lang('message.prev')</button>
-                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">NEXT</button>
+                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">@lang('message.next')</button>
                             </div>
                         </div>
                     </div>
@@ -56,8 +56,8 @@
                     <div class="card mx-auto" style="width: 60rem;">
                         <img src="{{ asset('icons/2.png') }}" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">2.  Pilih Menu Appointment</h5>
-                            <p class="card-text">Setelah berhasil login, Anda akan masuk ke Dashboard. Selanjutnya, Anda dapat memilih menu appointment untuk melakukan booking konsultasi.</p>
+                            <h5 class="card-title">@lang('message.tutor2')</h5>
+                            <p class="card-text">@lang('message.tutor2_desc')</p>
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-outline-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="prev">@lang('message.prev')</button>
                                 <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">@lang('message.next')</button>
@@ -71,11 +71,11 @@
                     <div class="card mx-auto" style="width: 60rem;">
                         <img src="{{ asset('icons/3.png') }}" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">3.  Pilih Dokter yang Diinginkan</h5>
-                            <p class="card-text">Di menu appointment, Anda dapat memilih dokter yang tersedia. Anda bebas memilih dokter yang mungkin Anda sudah kenal atau mencari pengalaman konsultasi baru dengan dokter kami.</p>
+                            <h5 class="card-title">@lang('message.tutor3')</h5>
+                            <p class="card-text">@lang('message.tutor3_desc')</p>
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-outline-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="prev">@lang('message.prev')</button>
-                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next"></button>
+                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">@lang('message.next')</button>
                             </div>
                         </div>                         
                     </div>
@@ -86,11 +86,11 @@
                     <div class="card mx-auto" style="width: 60rem;">
                         <img src="{{ asset('icons/4.png') }}" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">4.  Booking Dokter yang Telah Dipilih</h5>
-                            <p class="card-text">Anda dapat memilih jadwal konsultasi dengan dokter yang telah Anda pilih. TemuDok juga dapat menyesuaikan ketersediaan jadwal dokter sehingga Anda hanya dapat memilih jadwal yang memang tersedia untuk dokter tersebut.</p>
+                            <h5 class="card-title">@lang('message.tutor4')</h5>
+                            <p class="card-text">@lang('message.tutor4_desc')</p>
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-outline-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="prev">@lang('message.prev')</button>
-                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">NEXT</button>
+                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">@lang('message.next')</button>
                             </div>
                         </div>
                     </div>
@@ -101,11 +101,11 @@
                     <div class="card mx-auto" style="width: 60rem;">
                         <img src="{{ asset('icons/5.png') }}" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">5.  Lakukan Pembayaran</h5>
-                            <p class="card-text">Setelah booking, Anda dapat melanjutkan proses dengan melakukan pembayaran. Kami mendukung pembayaran dengan berbagai metode sehingga Anda hanya perlu memilih metode pembayaran yang sesuai dengan Anda.</p>
+                            <h5 class="card-title">@lang('message.tutor5')</h5>
+                            <p class="card-text">@lang('message.tutor5_desc')</p>
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-outline-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="prev">@lang('message.prev')</button>
-                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">NEXT</button>
+                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">@lang('message.next')</button>
                             </div>
                         </div>
                     </div>
@@ -116,11 +116,11 @@
                     <div class="card mx-auto" style="width: 60rem;">
                         <img src="{{ asset('icons/6.png') }}" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">6.  Selesai</h5>
-                            <p class="card-text">Proses selesai! Anda akan memperoleh tautan Zoom untuk berkonsultasi secara daring dengan dokter yang telah Anda pilih. Selamat berkonsultasi dengan nyaman dan aman!</p>
+                            <h5 class="card-title">@lang('message.tutor6')</h5>
+                            <p class="card-text">@lang('message.tutor6_desc')</p>
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-outline-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="prev">@lang('message.prev')</button>
-                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">NEXT</button>
+                                <button class="btn btn-primary w-8" data-bs-target="#atmStepsCarousel" data-bs-slide="next">@lang('message.next')</button>
                             </div>
                         </div>
                     </div>
