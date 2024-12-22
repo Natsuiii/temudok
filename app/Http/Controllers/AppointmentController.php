@@ -23,7 +23,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        // 
+        //
     }
 
     /**
@@ -55,19 +55,39 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, Appointment $appointment)
     {
-        if ($request->input('action') == 'accept') {
-            // $appointment->status_id = null ;
-        }
-        elseif ($request->input('action') == 'cencel') {
 
-        }
-        elseif ($request->input('action') == 'reschedule') {
-
+        switch ($request->input('action')) {
+            case 'accept':
+                $appointment->status_id = 1; // Accept
+                break;
+            case 'cancel':
+                $appointment->status_id = 2; // Reject
+                break;
+            case 'reschedule':
+                $appointment->status_id = 3; // Reschedule
+                break;
+            default:
+                $appointment->status_id = 4; // Pending
+                break;
         }
 
         $appointment->save();
 
         return redirect()->route('appointment.index')->with('success', 'Appointment updated successfully.');
+
+        // if ($request->input('action') == 'accept') {
+        //     // $appointment->status_id = null ;
+        // }
+        // elseif ($request->input('action') == 'cencel') {
+
+        // }
+        // elseif ($request->input('action') == 'reschedule') {
+
+        // }
+
+        // $appointment->save();
+
+        // return redirect()->route('appointment.index')->with('success', 'Appointment updated successfully.');
     }
 
     /**

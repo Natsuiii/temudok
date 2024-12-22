@@ -58,39 +58,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><input type="checkbox" class="row-select" data-id=""></td>
-                                <td>Awokwok</td>
-                                <td>20</td>
-                                <td>Test</td>
-                                <td>2022-12-12</td>
-                                <td><span class="badge bg-success">Success</span></td>
-                                <td>
-                                    <a href="" class="btn btn-success btn-sm"><i class="fa-solid fa-check"></i></a>
-                                    <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-xmark"></i></a>
-                                    <a href="" class="btn btn-warning btn-sm"><i
-                                            class="fa-solid fa-calendar"></i></a>
-                                    <a href="" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" class="row-select" data-id=""></td>
-                                <td>Awokwok</td>
-                                <td>20</td>
-                                <td>Test</td>
-                                <td>2022-12-12</td>
-                                <td><span class="badge bg-success">Pending</span></td>
-                                <td>
-                                    {{-- {{ route('appointment.update', $appointment->id) }} --}}
-                                    <form action="" method="POST" style="display:inline;" id="single-delete-form">
-                                        @csrf
-                                        <button href="" class="btn btn-success btn-sm" value="accept"><i class="fa-solid fa-check"></i></button>
-                                        <button href="" class="btn btn-danger btn-sm" value="cancel"><i class="fa-solid fa-xmark"></i></button>
-                                        <button href="" class="btn btn-warning btn-sm" value="reschedule"><i class="fa-solid fa-calendar"></i></button>
-                                    </form>
-                                    <a href="" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
-                                </td>
-                            </tr>
+                            @foreach ($appointments as $appointment)
+                                <tr>
+                                    <td><input type="checkbox" class="row-select" data-id="{{ $appointment->id }}"></td>
+                                    <td>{{ $appointment->name }}</td>
+                                    <td>{{ (new \DateTime($appointment->date_of_birth))->diff(new \DateTime('now'))->y }}</td>
+                                    <td>{{ $appointment->reason }}</td>
+                                    <td>{{ $appointment->appointment_date }}</td>
+                                    <td><span class="badge bg-{{ $appointment->status->status_name == 'Accept' ? 'success' : ($appointment->status->status_name == 'Reject' ? 'danger' : 'warning') }}">{{ $appointment->status->status_name }}</span></td>
+                                    <td>
+                                        <form action="{{ route('appointment.update', $appointment->id) }}" method="POST" style="display:inline;" id="single-delete-form">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit" name="action" value="accepted" class="btn btn-success btn-sm">
+                                                <i class="fa-solid fa-check"></i>
+                                            </button>
+                                            <button type="submit" name="action" value="rejected" class="btn btn-danger btn-sm">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                            <button type="submit" name="action" value="rescheduled" class="btn btn-warning btn-sm">
+                                                <i class="fa-solid fa-calendar"></i>
+                                            </button>
+                                        </form>
+
+                                        <a href="" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -108,7 +102,7 @@
     <script>
         $("#appointment-table").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,
-            
+
         });
 
         $('#select-all').on('click', function() {
