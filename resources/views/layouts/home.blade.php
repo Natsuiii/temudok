@@ -15,12 +15,6 @@
     @stack('css')
 </head>
 
-<style>
-    .active{
-        text-decoration: underline
-    }
-</style>
-
 <body>
     <div class="wrapper">
         <div class="main">
