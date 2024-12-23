@@ -6,7 +6,7 @@ use App\Models\AppointmentStatus;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CategorySeeder extends Seeder
+class AppointmentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         AppointmentStatus::factory()->create([
-            'status_name' => 'Accepted',
+            'status_name' => 'Done',
         ]);
 
         AppointmentStatus::factory()->create([
@@ -22,11 +22,11 @@ class CategorySeeder extends Seeder
         ]);
 
         AppointmentStatus::factory()->create([
-            'status_name' => 'Rescheduled',
+            'status_name' => 'Pending',
         ]);
 
         AppointmentStatus::factory()->create([
-            'status_name' => 'Pending',
+            'status_name' => 'Unpaid',
         ]);
     }
 }

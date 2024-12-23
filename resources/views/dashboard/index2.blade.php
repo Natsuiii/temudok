@@ -34,12 +34,12 @@
                 <!-- small box -->
                 <div class="small-box bg-primary">
                     <div class="inner text-white">
-                        <h3 style="color: white">150</h3>
+                        <h3 style="color: white">{{ $countUnpaid }}</h3>
 
                         <p>@lang('message.scheduled')</p>
                     </div>
                     <div class="icon">
-                        <i class="fa-solid fa-calendar"></i>
+                        <i class="fa-solid fa-credit-card"></i>
                     </div>
                     <a href="#" class="small-box-footer">@lang('message.more') <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
@@ -49,7 +49,7 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner text-white">
-                        <h3 style="color: white">53</h3>
+                        <h3 style="color: white">{{ $countDone }}</h3>
 
                         <p>@lang('message.done')</p>
                     </div>
@@ -64,7 +64,7 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3 >44</h3>
+                        <h3 >{{ $countPending }}</h3>
 
                         <p>@lang('message.pending')</p>
                     </div>
@@ -79,7 +79,7 @@
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner text-white">
-                        <h3 style="color: white">65</h3>
+                        <h3 style="color: white">{{ $countCancel }}</h3>
 
                         <p>@lang('message.cancel')</p>
                     </div>

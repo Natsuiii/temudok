@@ -4,6 +4,10 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.7/css/dataTables.bootstrap5.css">
 @endpush
 
+@php
+    use Carbon\Carbon;
+@endphp
+
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -39,7 +43,8 @@
                 </div>
             </div>
             <div class="card-body">
-                <a href="#"><button type="button" class="btn btn-danger" id="bulk-delete"><i class="fas fa-xmark"></i>
+                <a href="#"><button type="button" class="btn btn-danger" id="bulk-delete"><i
+                            class="fas fa-xmark"></i>
                         &nbsp;
                         Cancel
                         Selected</button></a>
@@ -61,22 +66,29 @@
                                 <tr>
                                     <td><input type="checkbox" class="row-select" data-id="{{ $appointment->id }}"></td>
                                     <td>{{ $appointment->name }}</td>
-                                    <td>{{ (new \DateTime($appointment->date_of_birth))->diff(new \DateTime('now'))->y }}</td>
+                                    <td>{{ $appointment->age }}</td>
                                     <td>{{ $appointment->reason }}</td>
                                     <td>{{ $appointment->appointment_date }}</td>
-                                    <td><span class="badge bg-{{ $appointment->status->status_name == 'Accept' ? 'success' : ($appointment->status->status_name == 'Reject' ? 'danger' : 'warning') }}">{{ $appointment->status->status_name }}</span></td>
                                     <td>
-                                        <form action="{{ route('appointment.update', $appointment->id) }}" method="POST" style="display:inline;" id="update-status-form">
+                                        <span
+                                            class="badge bg-{{ $appointment->status_id == '1' ? 'success' : ($appointment->status_id == '2' || $appointment->status_id == '4' ? 'danger' : 'warning') }}">
+                                            {{ $appointment->status->status_name }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('appointment.update', $appointment->id) }}" method="POST"
+                                            style="display:inline;" class="update-form">
                                             @csrf
                                             @method('PUT')
-                                            <button type="submit" name="action" value="accepted" class="btn btn-success btn-sm" id="update-status">
+                                            <input type="hidden" name="action" value="" class="action-input">
+
+                                            <button type="button" data-action="accepted"
+                                                class="btn btn-success btn-sm update-status">
                                                 <i class="fa-solid fa-check"></i>
                                             </button>
-                                            <button type="submit" name="action" value="rejected" class="btn btn-danger btn-sm" id="update-status">
+                                            <button type="button" data-action="rejected"
+                                                class="btn btn-danger btn-sm update-status">
                                                 <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                            <button type="submit" name="action" value="rescheduled" class="btn btn-warning btn-sm" id="update-status">
-                                                <i class="fa-solid fa-calendar"></i>
                                             </button>
                                         </form>
 
@@ -99,7 +111,9 @@
     <script src="{{ asset('js/confirmSubmit.js') }}"></script>
     <script>
         $("#appointment-table").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
 
         });
 
@@ -121,17 +135,20 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('#update-status').forEach(function(button) {
+            document.querySelectorAll('.update-status').forEach(function(button) {
                 button.addEventListener('click', function(event) {
                     event.preventDefault();
-                    let form = this.closest('#update-status-form');
+                    let form = this.closest('.update-form');
+                    let actionInput = form.querySelector('.action-input');
 
+                    // Set the value of the hidden input
+                    actionInput.value = this.getAttribute('data-action');
+
+                    // Confirm before submitting
                     let confirmed = window.confirm('Are you sure?');
 
                     if (confirmed) {
                         form.submit();
-                    } else {
-                        return false;
                     }
                 });
             });

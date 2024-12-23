@@ -23,10 +23,10 @@
                   <a class="nav-link text-white fw-semibold" href="{{ route('home') }}">@lang('message.about')</a>
               @endif
               <li class="nav-item">
-                <a class="nav-link text-white fw-semibold" href="{{ route('login') }}">@lang('message.appointment')</a>
+                <a class="nav-link text-white fw-semibold" href="{{ route('appointments') }}">@lang('message.appointment')</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white fw-semibold" href="{{ route('login') }}">@lang('message.history')</a>
+                <a class="nav-link text-white fw-semibold" href="{{ route('history') }}">@lang('message.history')</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white fw-semibold {{ Route::is('articles', 'articles.detail') ? 'active' : '' }}" href="{{ route('articles') }}">@lang('message.articles')</a>
@@ -54,7 +54,14 @@
                 </div>
             </li>
           </ul>
-          <a href="{{ route('login') }}" class="btn btn-warning rounded-pill px-4 py-2 fw-semibold ms-4" style="font-size: 0.9rem; transition: background-color 0.3s ease;">@lang('message.login')</a>
+          @if (!Auth::check())
+            <a href="{{ route('login') }}" class="btn btn-warning rounded-pill px-4 py-2 fw-semibold ms-4" style="font-size: 0.9rem; transition: background-color 0.3s ease;">@lang('message.login')</a>
+          @elseif (Auth::check())
+            <form action="{{ route('logout') }}" method="post">
+              @csrf
+              <button type="submit" class="btn btn-warning rounded-pill px-4 py-2 fw-semibold ms-4">Logout</button>
+            </form>
+          @endif
         </div>
       </div>
   </div>
