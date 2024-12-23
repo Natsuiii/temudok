@@ -4,6 +4,14 @@
     <div class="container">
         <!-- Header Section -->
         <h3 class="fw-bold py-4">@lang('message.article_headbar')</h3>
+
+        <!-- Search Bar -->
+        <form action="{{ route('articles.search') }}" method="POST" class="d-flex mb-4">
+            @csrf
+            <input class="form-control me-2" type="search" name="query" placeholder="@lang('message.search_placeholder')" aria-label="Search">
+            <button class="btn btn-primary" type="submit">@lang('message.search')</button>
+        </form>
+
         <!-- Tabs -->
         <ul class="nav nav-pills mb-3 d-flex gap-3 overflow-x-auto" id="category-tabs">
             <li class="nav-item">

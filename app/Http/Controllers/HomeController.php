@@ -25,6 +25,19 @@ class HomeController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Fetch articles matching the query
+        $articles = Article::where('title', 'LIKE', "%{$query}%")
+            ->orWhere('content', 'LIKE', "%{$query}%")
+            ->with('category')
+            ->get();
+
+        return view('home.search', compact('articles', 'query'));
+    }
+
     public function tutorial(){
         return view('home.tutorial');
     }

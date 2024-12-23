@@ -21,7 +21,7 @@
         'learn_more' => 'Learn More',
         'online_booking' => 'Online Booking',
         'medical_support' => 'Medical Support',
-        'healty_first' => 'Healty First',
+        'healty_first' => 'Healthy First',
         'about_title' => 'What is Temudok?',
         'about_description' => 'Temudok is an online booking platform for medical needs that makes it easy for you to find the best doctors, book consultations, and schedule efficiently, anytime and anywhere. A practical solution for your health!',
         'mission_title' => 'Our Mission: Helping Everyone Stay Healthy',
@@ -66,6 +66,9 @@
 
         //Search
         'search' => 'Search...',
+        'search_caption' => 'Search Results for ',
+        'search_placeholder' => 'Search articles...',
+        'search_not_found' => 'No articles matched with your query.',
 
         // Dashboard profile
         'ds_profile' => 'Profile',
