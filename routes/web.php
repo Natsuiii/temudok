@@ -18,6 +18,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/articles', [HomeController::class, 'articles'])->name('articles');
 Route::get('/articles/{article:slug}', [HomeController::class, 'details'])->name('articles.detail');
+Route::post('/articles/search', [HomeController::class, 'search'])->name('articles.search');
 Route::get('/tutorial', [HomeController::class, 'tutorial'])->name('tutorial');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');

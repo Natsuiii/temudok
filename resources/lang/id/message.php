@@ -15,7 +15,7 @@
         'privacy' => 'Kebijakan Privasi',
         'address' => 'ALAMAT',
         'jakarta' => 'Jakarta Barat',
-        'getintouch' => 'IKUTI KAMU JUGA',
+        'getintouch' => 'KENALI LEBIH DEKAT',
         'hero_title' => 'Temukan Dokter, Temukan Solusi',
         'hero_description' => 'Temudok mempermudah Anda untuk menemukan dan memesan jadwal konsultasi dokter terbaik sesuai kebutuhan, kapan saja dan di mana saja.',
         'learn_more' => 'Pelajari Lebih Lanjut',
@@ -64,6 +64,9 @@
         'tutor6_desc' => 'Proses selesai! Anda akan memperoleh tautan Zoom untuk berkonsultasi secara daring dengan dokter yang telah Anda pilih. Selamat berkonsultasi dengan nyaman dan aman!',
 
         'search' => 'Cari...',
+        'search_caption' => 'Hasil Pencarian untuk ',
+        'search_placeholder' => 'Cari artikel...',
+        'search_not_found' => 'Tidak ada artikel yang cocok dengan kueri Anda.',
 
         'ds_profile' => 'Profil',
         'ds_analytics' => 'Analitik',
