@@ -15,11 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/appointments', [AppointmentController::class, 'create'])->name('appointments');
-
-Route::get('/history', function(){
-    return view('home.history');
-})->name('history');
 
 Route::get('/articles', [HomeController::class, 'articles'])->name('articles');
 Route::get('/articles/{article:slug}', [HomeController::class, 'details'])->name('articles.detail');
@@ -32,44 +27,38 @@ Route::post('/register', [LoginController::class, 'store'])->name('register.stor
 Route::get('/switch-language/{lang}', [LocalController::class, 'switchLanguage'])->name('switch.language');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/appointments', [AppointmentController::class, 'create'])->name('appointments');
 
-    // Route::middleware(CheckRole::class . ':Admin')->group(function () {
+    Route::get('/get-unavailable-times/{doctorId}', [AppointmentController::class, 'getUnavailableTimes'])->name('get-unavailable-times');
+
+    Route::get('/history', [AppointmentController::class, 'history'])->name('history');
+
+    Route::middleware(CheckRole::class . ':Admin')->group(function () {
         Route::resource('user', AddUserController::class);
         Route::delete('/users/bulk-destroy', [AddUserController::class, 'bulkDestroy'])->name('users.bulkDestroy');
-    // });
+        Route::resource('/admin/category', CategoryController::class);
+        Route::delete('/admin/bulk-destroy/category', [CategoryController::class, 'bulkDestroy'])->name('category.bulkDestroy');
+    });
 
-    // Route::middleware(CheckRole::class . ':Doctor')->group(function () {
+    Route::middleware(CheckRole::class . ':Doctor')->group(function () {
         Route::resource('/schedule', UnavailableTimeController::class);
         Route::delete('/schedules/bulk-destroy', [UnavailableTimeController::class, 'bulkDestroy'])->name('schedules.bulkDestroy');
-    // });
+        Route::get('/appointment', function () {
+            return view('appointment.index');
+        })->name('appointment.index');
+        Route::resource('appointment', AppointmentController::class);
+        Route::resource('/article', ArticleController::class)->parameters(['articles' => 'slug']);
+        Route::delete('/articles/bulk-destroy', [ArticleController::class, 'bulkDestroy'])->name('articles.bulkDestroy');
+    });
 
-    Route::get('/dashboard', function () {
-        return view('dashboard.index2');
-    })->name('dashboard');
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
-    // routes/web.php
     Route::get('/send-email/{email}', [EmailController::class, 'sendEmailNotification']);
-    Route::get('/appointment', function () {
-        return view('appointment.index');
-    })->name('appointment.index');
 
     Route::get('/calendar', function () {
         return view('calendar.index');
     })->name('calendar');
 
-    Route::resource('appointment', AppointmentController::class);
-
-    Route::get('/get-unavailable-times/{doctorId}', [AppointmentController::class, 'getUnavailableTimes']);
-
-    Route::resource('/article', ArticleController::class)->parameters(['articles' => 'slug']);
-    Route::delete('/articles/bulk-destroy', [ArticleController::class, 'bulkDestroy'])->name('articles.bulkDestroy');
-
-    Route::resource('/admin/category', CategoryController::class);
-    Route::delete('/admin/bulk-destroy/category', [CategoryController::class, 'bulkDestroy'])->name('category.bulkDestroy');
-
+    Route::get('/success/{appointment}', [AppointmentController::class, 'success'])->name('success');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-    
-
-
 });

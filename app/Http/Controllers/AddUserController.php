@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 
 class AddUserController extends Controller
@@ -46,14 +47,20 @@ class AddUserController extends Controller
             'password' => 'required|min:8',
             'role' => 'required|exists:roles,id',
             'category' => 'exists:categories,id',
+            'profile' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
+
+        $profilePhotoPath = null;
+        if ($request->hasFile('profile')) {
+            $profilePhotoPath = $request->file('profile')->store('profile_image', 'public');
+        }
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'role_id' => $request->role,
-            'profile_photo_path' => null,
+            'profile_photo_path' => $profilePhotoPath,
             'specialization_id' => $request->category
         ]);
 
@@ -120,6 +127,13 @@ class AddUserController extends Controller
 
             User::destroy($ids);
 
+            foreach ($ids as $id) {
+                $user = User::find($id);
+                if ($user->profile_photo_path) {
+                    Storage::disk('public')->delete($user->profile_photo_path);
+                }
+            }
+
             return back()->with('success', 'Users deleted successfully.');
         } catch (ValidationException $e) {
             return back()->withErrors($e->validator)->withInput();
@@ -130,6 +144,10 @@ class AddUserController extends Controller
     {
         try {
             $user->delete();
+
+            if ($user->profile_photo_path) {
+                Storage::disk('public')->delete($user->profile_photo_path);
+            }
 
             return back()->with('success', 'User deleted successfully.');
         } catch (ValidationException $e) {

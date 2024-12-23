@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Role;
+use App\Models\UnavailableTime;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -62,6 +63,11 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'role_id' => 2,
             'specialization_id' => 3
+        ]);
+
+        UnavailableTime::create([
+           'doctor_id' => 3,
+           'unavailable_time' => '2024-12-25'
         ]);
 
         // AppointmentStatus::factory()->create([

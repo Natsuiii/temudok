@@ -14,7 +14,7 @@ class AppointmentSeeder extends Seeder
     public function run(): void
     {
         AppointmentStatus::factory()->create([
-            'status_name' => 'Accepted',
+            'status_name' => 'Done',
         ]);
 
         AppointmentStatus::factory()->create([
@@ -22,11 +22,11 @@ class AppointmentSeeder extends Seeder
         ]);
 
         AppointmentStatus::factory()->create([
-            'status_name' => 'Rescheduled',
+            'status_name' => 'Pending',
         ]);
 
         AppointmentStatus::factory()->create([
-            'status_name' => 'Pending',
+            'status_name' => 'Unpaid',
         ]);
     }
 }

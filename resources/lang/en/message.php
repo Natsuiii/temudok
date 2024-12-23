@@ -76,7 +76,7 @@
 
         // Dashboard
         'dashboard' => 'Dashboard',
-        'scheduled' => 'Scheduled',
+        'scheduled' => 'Not Paid',
         'done' => 'Done',
         'pending' => 'Pending',
         'cancel' => 'Canceled',
@@ -120,5 +120,14 @@
         'show_detail' => 'Show Detail',
         'listHome' => 'Doctor List',
         'reason' => 'Describe the illness you are experiencing',
+        'appointmentSuccess' => 'Appointment Created Successfully',
+        'historyPage' => 'Appointment History',
+        'duration' => 'Duration',
+        'apppointmentDate' => 'Appointment Date',
+        'unpaid' => 'Unpaid',
+        'pay' => 'Pay',
+        'pay1' => 'You are going to pay for this zoom consultation with a price of',
+        'success' => 'Payment Success',
+        'back' => 'Back',
     ];
 ?>

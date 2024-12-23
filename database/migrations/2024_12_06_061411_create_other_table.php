@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('patient_id')->constrained('users', 'id')->onDelete('cascade');
             $table->foreignId('doctor_id')->constrained('users', 'id')->onDelete('cascade');
             $table->bigInteger('amount');
-            $table->boolean('payment_status');
+            $table->string('payment_status');
             $table->string('snap_token')->nullable();
             $table->timestamps();
         });
@@ -36,8 +36,11 @@ return new class extends Migration
             $table->string('email_to_contact');
             $table->text('reason');
             $table->integer('age');
+            $table->string('consultation_duration');
             $table->dateTime('appointment_date');
             $table->dateTime('appointment_reschedule_date')->nullable();
+            $table->bigInteger('amount');
+            $table->string('snap_token')->nullable();
             $table->timestamps();
         });
     }

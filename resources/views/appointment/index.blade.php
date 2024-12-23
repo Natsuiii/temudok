@@ -69,8 +69,11 @@
                                     <td>{{ $appointment->age }}</td>
                                     <td>{{ $appointment->reason }}</td>
                                     <td>{{ $appointment->appointment_date }}</td>
-                                    <td><span
-                                            class="badge bg-{{ $appointment->status->status_name == 'Accepted' ? 'success' : ($appointment->status->status_name == 'Rejected' ? 'danger' : 'warning') }}">{{ $appointment->status->status_name }}</span>
+                                    <td>
+                                        <span
+                                            class="badge bg-{{ $appointment->status_id == '1' ? 'success' : ($appointment->status_id == '2' || $appointment->status_id == '4' ? 'danger' : 'warning') }}">
+                                            {{ $appointment->status->status_name }}
+                                        </span>
                                     </td>
                                     <td>
                                         <form action="{{ route('appointment.update', $appointment->id) }}" method="POST"
@@ -86,10 +89,6 @@
                                             <button type="button" data-action="rejected"
                                                 class="btn btn-danger btn-sm update-status">
                                                 <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                            <button type="button" data-action="rescheduled"
-                                                class="btn btn-warning btn-sm update-status">
-                                                <i class="fa-solid fa-calendar"></i>
                                             </button>
                                         </form>
 

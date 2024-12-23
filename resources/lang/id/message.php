@@ -73,9 +73,9 @@
 
         // Dashboard
         'dashboard' => 'Dasbor',
-        'scheduled' => 'Jadwal',
+        'scheduled' => 'Belum Bayar',
         'done' => 'Selesai',
-        'pending' => 'Tertunda',
+        'pending' => 'Menunggu',
         'cancel' => 'Batal',
         'more' => 'Info Lanjut',
 
@@ -115,7 +115,16 @@
         'book' => 'Pesan',
         'show_detail' => 'Tampilkan Detail',
         'listHome' => 'Daftar Dokter',
-        'reason' => 'Deskripsikan keluhan yang Anda alami...'
+        'reason' => 'Deskripsikan keluhan yang Anda alami...',
 
+        'historyPage' => 'Riwayat Pesanan',
+        'appointmentSuccess' => 'Jadwal Konsultasi Berhasil di Book',
+        'duration' => 'Durasi',
+        'apppointmentDate' => 'Tanggal Booking',
+        'unpaid' => 'Belum dibayar',
+        'pay' => 'Bayar',
+        'pay1' => 'Kamu akan membayar untuk konsultasi zoom ini dengan harga',
+        'success' => 'Pembayaran Berhasil',
+        'back' => 'Kembali',
     ];
 ?>

@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 
 class ArticleController extends Controller
@@ -38,7 +39,10 @@ class ArticleController extends Controller
             'title' => 'required',
             'content' => 'required',
             'category' => 'required',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg|max:4096',
         ]);
+
+        
 
         $slug = Str::slug($request->title);
 
@@ -49,6 +53,11 @@ class ArticleController extends Controller
             $slug = $slug . '-' . ($counter + 1);
         }
 
+        $thumbnail = null;
+        if ($request->hasFile('thumbnail')) {
+            $thumbnail = $request->file('thumbnail')->store('thumbnail', 'public');
+        }
+
         Article::create([
             'doctor_id' => Auth::user()->id,
             'category_id' => $request->category,
@@ -56,6 +65,7 @@ class ArticleController extends Controller
             'slug' => $slug,
             'content' => $request->content,
             'category' => $request->category,
+            'thumbnail' => $thumbnail
         ]);
 
         return redirect()->route('article.create')->with('success', 'Article created successfully.');
@@ -85,6 +95,7 @@ class ArticleController extends Controller
             'title' => 'required',
             'content' => 'required',
             'category' => 'required',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg|max:4096',
         ]);
 
         $slug = Str::slug($request->title);
@@ -96,11 +107,17 @@ class ArticleController extends Controller
             $slug = $slug . '-' . ($counter + 1);
         }
 
+        $thumbnail = null;
+        if ($request->hasFile('thumbnail')) {
+            $thumbnail = $request->file('thumbnail')->store('thumbnail', 'public');
+        }
+
         $article->update([
             'title' => $request->title,
             'slug' => $slug,
             'content' => $request->content,
             'category' => rand(1, 10),
+            'thumbnail' => $thumbnail
         ]);
 
         return redirect()->route('article.index')->with('success', 'Article updated successfully.');
@@ -112,6 +129,9 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
+        if ($article->thumbnail) {
+            Storage::disk('public')->delete($article->thumbnail);
+        }
         return redirect()->route('article.index')->with('success', 'Article deleted successfully.');
     }
 
@@ -132,6 +152,14 @@ class ArticleController extends Controller
 
             // Hapus semua jadwal yang dipilih
             Article::destroy($ids);
+
+            // Hapus thumbnail dari semua jadwal yang dipilih
+            foreach ($ids as $id) {
+                $article = Article::find($id);
+                if ($article->thumbnail) {
+                    Storage::disk('public')->delete($article->thumbnail);
+                }
+            }
 
             // Kirim pesan sukses
             return back()->with('success', 'Articles deleted successfully.');
