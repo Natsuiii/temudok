@@ -77,11 +77,11 @@
                             <p class="m-0" style="font-size: 14px;">@lang('message.duration'): <strong>{{ $item->consultation_duration }} @lang('message.minutes')</strong></p>
                         </div>
                         <div>
-                            <button class="btn btn-primary text-white fw-bold text-decoration-none" data-bs-toggle="modal" data-bs-target="#doctorModal-{{ $item->doctor_id }}">Link Zoom</button>
+                            <button class="btn btn-primary text-white fw-bold text-decoration-none" data-bs-toggle="modal" data-bs-target="#doctorModalOngoing-{{ $item->doctor_id }}">Link Zoom</button>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="doctorModal-{{ $item->doctor_id }}" tabindex="-1" aria-labelledby="doctorModalLabel" aria-hidden="true">
+                <div class="modal fade" id="doctorModalOngoing-{{ $item->doctor_id }}" tabindex="-1" aria-labelledby="doctorModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
