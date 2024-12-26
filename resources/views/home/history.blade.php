@@ -89,7 +89,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <a href="" target="_blank">Link Zoom</a>
+                                <a href="{{ $item->meeting->join_url }}" target="_blank">Link Zoom</a>
                             </div>
                         </div>
                     </div>

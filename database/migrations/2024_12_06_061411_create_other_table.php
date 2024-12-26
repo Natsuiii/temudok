@@ -43,6 +43,15 @@ return new class extends Migration
             $table->string('snap_token')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('meetings', function (Blueprint $table) {
+            $table->id();
+            $table->string('meeting_id');
+            $table->foreignId('appointment_id')->constrained('appointments', 'id')->onDelete('cascade');
+            $table->text('join_url');
+            $table->text('start_url');
+            $table->timestamps();
+        });
     }
 
     /**

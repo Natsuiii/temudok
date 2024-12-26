@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UnavailableTimeController;
 use App\Http\Controllers\LocalController;
+use App\Http\Controllers\ZoomController;
 use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Route;
 

@@ -57,6 +57,7 @@
                                 <th>Age</th>
                                 <th>Description</th>
                                 <th>Appointment Date</th>
+                                <th>Zoom Link</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -69,6 +70,13 @@
                                     <td>{{ $appointment->age }}</td>
                                     <td>{{ $appointment->reason }}</td>
                                     <td>{{ $appointment->appointment_date }}</td>
+                                    <td>
+                                        @if ($appointment->status_id == '3')
+                                            <a href="{{ $appointment->meeting->start_url }}" target="_blank">Start Meeting</a>
+                                        @else
+                                            Appointment Done
+                                        @endif
+                                    </td>
                                     <td>
                                         <span
                                             class="badge bg-{{ $appointment->status_id == '1' ? 'success' : ($appointment->status_id == '2' || $appointment->status_id == '4' ? 'danger' : 'warning') }}">

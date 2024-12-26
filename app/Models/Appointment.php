@@ -32,4 +32,9 @@ class Appointment extends Model
     {
         return $this->hasOne(Payment::class, 'payment_id', 'id');
     }
+
+    public function meeting()
+    {
+        return $this->hasOne(Meeting::class, 'appointment_id', 'id');
+    }
 }

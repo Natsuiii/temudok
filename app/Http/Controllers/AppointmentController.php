@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Meeting;
 use App\Models\UnavailableTime;
 use App\Models\User;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
+use Jubaer\Zoom\Facades\Zoom;
 
 class AppointmentController extends Controller
 {
@@ -17,7 +19,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('doctor_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+        $appointments = Appointment::where('doctor_id', Auth::user()->id)->orderBy('created_at', 'desc')->with('meeting')->get();
         return view('appointment.index', compact('appointments'));
     }
 
@@ -89,6 +91,8 @@ class AppointmentController extends Controller
 
         $appointment->snap_token = $snapToken;
         $appointment->save();
+
+        
 
         return redirect()->route('history')->with('success', 'Appointment created successfully.');
     }
@@ -168,6 +172,29 @@ class AppointmentController extends Controller
     {
         $appointment->status_id = 3;
         $appointment->save();
+
+        $this->createMeeting($appointment->doctor->name, $appointment->reason, $appointment->appointment_date, $appointment->id);
+
         return view('home.success');
+    }
+
+    public function createMeeting($doctor_name, $reason, $start_time, $appointment_id)
+    {
+        $meetings = Zoom::createMeeting([
+            "agenda" => 'Meeting with' . $doctor_name,
+            "topic" => 'Regarding ' . $reason,
+            "type" => 2, // 1 => instant, 2 => scheduled, 3 => recurring with no fixed time, 8 => recurring with fixed time
+            "timezone" => 'Asia/Jakarta', // set your timezone
+            "password" => 'temudok',
+            "pre_schedule" => true, 
+            "start_time" => $start_time, // set your start time
+        ]);
+
+        Meeting::create([
+            'meeting_id' => $meetings['data']['id'],
+            'appointment_id' => $appointment_id,
+            'start_url' => $meetings['data']['start_url'],
+            'join_url' => $meetings['data']['join_url'],
+        ]);
     }
 }
