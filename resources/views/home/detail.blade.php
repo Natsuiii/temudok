@@ -10,10 +10,12 @@
         </div>
 
         <!-- Article Image -->
-        <img src="{{ $article->thumbnail ? asset($article->thumbnail) : asset('/img/home/journey.png') }}" alt="" class="img-fluid rounded" style="width: 600px; height: 400px; margin-bottom: 30px;">
+        <img src="{{ $article->thumbnail ? asset('storage/' . $article->thumbnail) : asset('/img/home/journey.png') }}" alt="" class="img-fluid rounded" style="width: 600px; height: 400px; margin-bottom: 30px;"> <br>
 
         <!-- Article Content -->
-        {!! $article->content !!}
+        <div class="text-left">
+            {!! $article->content !!}
+        </div>
         <br>
     </div>
 @endsection

@@ -26,7 +26,7 @@
         'about_description' => 'Temudok is an online booking platform for medical needs that makes it easy for you to find the best doctors, book consultations, and schedule efficiently, anytime and anywhere. A practical solution for your health!',
         'mission_title' => 'Our Mission: Helping Everyone Stay Healthy',
         'mission_description' => "We believe that health is everyone's right. Our mission is to help you with easy access to the best medical services around you, combining modern technology with everyday needs. We are committed to making healthcare easier for everyone, so that every individual can live a healthy and happy life.",
-        'history_title' => 'Perjalanan Kami',
+        'history_title' => 'Out History',
         'history_description' => "Founded in 2024 by a passionate team, Temudok aims to modernize the healthcare experience for people. Starting from a simple idea, we are now one of the leading solutions for digital-based healthcare. We continue to innovate and develop the latest technology to provide a better healthcare experience for everyone.",
         'team_title' => 'Our Team',
         'faq_title' => 'Frequently Asked Questions',

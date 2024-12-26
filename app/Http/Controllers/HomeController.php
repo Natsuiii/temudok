@@ -21,9 +21,10 @@ class HomeController extends Controller
         return view('home.article', compact(['categories', 'articles']));
     }
 
-    public function details(Article $slug){        
+    public function details($slug){        
+        $article = Article::where('slug', $slug)->with(['category', 'doctor'])->firstOrFail();
         return view('home.detail', [
-            'article' => $slug->with(['category', 'doctor'])->firstOrFail()
+            'article' => $article
         ]);
     }
 

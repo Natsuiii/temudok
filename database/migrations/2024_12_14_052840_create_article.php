@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->integer('doctor_id'); // ntar di ganti jadi foreign
-            $table->integer('category_id'); // ntar di ganti jadi foreign
+            $table->foreignId('doctor_id')->constrained('users', 'id')->onDelete('cascade'); // ntar di ganti jadi foreign
+            $table->foreignId('category_id')->constrained('categories', 'id')->onDelete('cascade'); // ntar di ganti jadi foreign
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('content');

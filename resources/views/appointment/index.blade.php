@@ -91,8 +91,6 @@
                                                 <i class="fa-solid fa-xmark"></i>
                                             </button>
                                         </form>
-
-                                        <a href="" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

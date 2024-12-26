@@ -100,6 +100,13 @@ class AddUserController extends Controller
             $user->specialization_id = null;
         }
 
+        if ($request->hasFile('profile')) {
+            if ($user->profile_photo_path) {
+                Storage::disk('public')->delete($user->profile_photo_path);
+            }
+            $user->profile_photo_path = $request->file('profile')->store('profile_image', 'public');
+        }
+
         $user->update([
             'name' => $request->name,
             'role_id' => $request->role,

@@ -151,9 +151,10 @@ class AppointmentController extends Controller
         }
         $appointmentsOngoing = Appointment::where('patient_id', Auth::user()->id)->where('status_id', 3)->orderBy('created_at', 'desc')->with('doctor')->get();
 
-        $appointmentsDone = Appointment::where('patient_id', Auth::user()->id)->where('status_id', 1)->orWhere('status_id', 2)->orderBy('created_at', 'desc')->with('doctor')->get();
+        $appointmentsDone = Appointment::where('patient_id', Auth::user()->id)->where('status_id', 1)->orderBy('created_at', 'desc')->with('doctor')->get();
 
         $appointmentUnpaid = Appointment::where('patient_id', Auth::user()->id)->where('status_id', 4)->orderBy('created_at', 'desc')->with('doctor')->get();
+
 
 
         return view('home.history', [

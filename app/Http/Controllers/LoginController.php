@@ -70,6 +70,10 @@ class LoginController extends Controller
 
         Auth::login($user);
 
+        if(Auth::user()->role_id == 1) {
+            return redirect()->route('home');
+        }
+
         return redirect()->route('dashboard');
     }
 }

@@ -32,7 +32,7 @@
                     <a href="{{ route('articles.detail', $article->slug) }}"
                         class="text-decoration-none">
                         <div class="card h-100 shadow-sm">
-                            <img src="{{ $article->thumbnail ? asset($article->thumbnail) : asset('/img/home/journey.png') }}"
+                            <img src="{{ $article->thumbnail ? asset('storage/' . $article->thumbnail) : asset('/img/home/journey.png') }}"
                                 class="card-img-top" style="height: 230px;" alt="">
                             <div class="card-body">
                                 <h5 class="card-title fw-bold">{{ $article->title }}</h5>

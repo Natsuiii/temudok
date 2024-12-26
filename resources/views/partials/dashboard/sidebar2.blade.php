@@ -120,7 +120,7 @@
                 <li class="sidebar-item {{ Route::is('appointment.index') ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route('appointment.index') }}">
                         <i class="fa-solid fa-calendar-check"></i> <span class="align-middle">@lang('message.your-appointment') <span
-                                class="badge bg-warning">{{ Appointment::where('status_id', '3')->count() }}</span></span>
+                                class="badge bg-warning">{{ Appointment::where('status_id', '3')->where('doctor_id', Auth::user()->id)->count() }}</span></span>
                     </a>
                 </li>
             @endif

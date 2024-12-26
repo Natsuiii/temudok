@@ -17,7 +17,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/articles', [HomeController::class, 'articles'])->name('articles');
-Route::get('/articles/{article:slug}', [HomeController::class, 'details'])->name('articles.detail');
+Route::get('/articles/{slug}', [HomeController::class, 'details'])->name('articles.detail');
 Route::post('/articles/search', [HomeController::class, 'search'])->name('articles.search');
 Route::get('/tutorial', [HomeController::class, 'tutorial'])->name('tutorial');
 
@@ -41,13 +41,15 @@ Route::middleware('auth')->group(function () {
         Route::delete('/admin/bulk-destroy/category', [CategoryController::class, 'bulkDestroy'])->name('category.bulkDestroy');
     });
 
+    Route::resource('appointment', AppointmentController::class);
+
+
     Route::middleware(CheckRole::class . ':Doctor')->group(function () {
         Route::resource('/schedule', UnavailableTimeController::class);
         Route::delete('/schedules/bulk-destroy', [UnavailableTimeController::class, 'bulkDestroy'])->name('schedules.bulkDestroy');
-        Route::get('/appointment', function () {
-            return view('appointment.index');
-        })->name('appointment.index');
-        Route::resource('appointment', AppointmentController::class);
+        // Route::get('/appointment', function () {
+        //     return view('appointment.index');
+        // })->name('appointment.index');
         Route::resource('/article', ArticleController::class)->parameters(['articles' => 'slug']);
         Route::delete('/articles/bulk-destroy', [ArticleController::class, 'bulkDestroy'])->name('articles.bulkDestroy');
     });

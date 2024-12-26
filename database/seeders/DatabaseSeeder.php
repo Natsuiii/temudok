@@ -15,13 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
         $this->call([
             CategorySeeder::class,
-            ArticleSeeder::class,
-            AppointmentSeeder::class
         ]);
-
+        
         Role::factory()->create([
             'name' => 'Guest'
         ]);
@@ -63,6 +60,12 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'role_id' => 2,
             'specialization_id' => 3
+        ]);
+        
+        // User::factory(10)->create();
+        $this->call([
+            ArticleSeeder::class,
+            AppointmentSeeder::class
         ]);
 
         UnavailableTime::create([
