@@ -74,7 +74,7 @@ class AppointmentController extends Controller
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.serverKey');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
+        \Midtrans\Config::$isProduction = config('midtrans.isProduction');
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = config('midtrans.isSanitized');
         // Set 3DS transaction for credit card to true
